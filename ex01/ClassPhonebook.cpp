@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/28 04:27:56 by nhariman      #+#    #+#                 */
-/*   Updated: 2020/07/28 22:37:16 by nhariman      ########   odam.nl         */
+/*   Updated: 2020/07/29 17:44:59 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,10 @@ void	phonebook::add_contact(contact contact)
 
 void	phonebook::search_phonebook(contact *contacts, int nb)
 {
-	int i;
+	int 		i;
+	std::string name;
+	std::string lastname;
+	std::string nickname;
 
 	i = 0;
 	std::cout << std::setw(10 - strlen("Index")) << "Index" <<
@@ -101,10 +104,25 @@ void	phonebook::search_phonebook(contact *contacts, int nb)
         std::setw(10 - strlen("Nickname")) << "Nickname" << std::endl;
 	while (i <= nb)
 	{
-		std::cout << std::setw(10) << "This" <<
-        std::setw(10) << "is" <<
-        std::setw(10) << "a" <<
-        std::setw(10) << "test" << std::endl;
+		name = contacts[i].get_name();
+		lastname = contacts[i].get_lastname();
+		nickname = contacts[i].get_nickname();
+
+		std::cout << std::setw(10 - 1) << i << '|';
+		if (name.length() < 10)
+        	std::cout << name.substr(1, 9) + '.';
+		else
+			std::cout << std::setw(10 - name.length()) << name;
+		std::cout << '|';
+        if (lastname.length() > 10)
+			std::cout << lastname.substr(1, 9) + '.';	
+		else
+			std::cout << std::setw(10 - lastname.length()) << lastname;
+		if (nickname.length() > 10)
+			std::cout << nickname.substr(1, 9) + '.';	
+		else
+			std::cout << std::setw(10 - nickname.length()) << nickname;
+		std::cout << std::endl;
 	}
 	
 }

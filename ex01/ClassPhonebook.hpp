@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/27 22:27:27 by nhariman      #+#    #+#                 */
-/*   Updated: 2020/07/28 22:19:22 by nhariman      ########   odam.nl         */
+/*   Updated: 2020/07/29 17:22:48 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 class contact
 {
@@ -64,7 +65,40 @@ public:
 	void set_secret(std::string str){
 		_secret = str;
 	}
-
+	// get
+	std::string get_name(){
+		return _name;
+	}
+	std::string get_lastname(){
+		return _lastname;
+	}
+	std::string get_nickname(){
+		return _nickname;
+	}
+	std::string get_login(){
+		return _login;
+	}
+	std::string get_postcode(){
+		return _postcode;
+	}
+	std::string get_email(){
+		return _email;
+	}
+	std::string get_phone(){
+		return _phone;
+	}
+	std::string get_bday(){
+		return _bday;
+	}
+	std::string get_meal(){
+		return _meal;
+	}
+	std::string get_underwear(){
+		return _underwear;
+	}
+	std::string get_secret(){
+		return _secret;
+	}
 };
 
 class phonebook
