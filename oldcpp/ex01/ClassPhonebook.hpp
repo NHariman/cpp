@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/27 22:27:27 by nhariman      #+#    #+#                 */
-/*   Updated: 2020/07/28 04:47:47 by nhariman      ########   odam.nl         */
+/*   Updated: 2020/07/29 17:22:48 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,58 +14,102 @@
 #define CLASSPHONEBOOK_H
 
 #include <iostream>
+#include <iomanip>
+#include <string>
+
+class contact
+{
+private:
+	std::string _name;
+	std::string _lastname;
+	std::string _nickname;
+	std::string _login;
+	std::string _postcode;
+	std::string _email;
+	std::string _phone;
+	std::string _bday;
+	std::string _meal;
+	std::string _underwear;
+	std::string _secret;
+public:
+	void set_name(std::string str){
+		_name = str;
+	}
+	void set_lastname(std::string str){
+		_lastname = str;
+	}
+	void set_nickname(std::string str){
+		_nickname = str;
+	}
+	void set_login(std::string str){
+		_login = str;
+	}
+	void set_postcode(std::string str){
+		_postcode = str;
+	}
+	void set_email(std::string str){
+		_email = str;
+	}
+	void set_phone(std::string str){
+		_phone = str;
+	}
+	void set_bday(std::string str){
+		_bday = str;
+	}
+	void set_meal(std::string str){
+		_meal = str;
+	}
+	void set_underwear(std::string str){
+		_underwear = str;
+	}
+	void set_secret(std::string str){
+		_secret = str;
+	}
+	// get
+	std::string get_name(){
+		return _name;
+	}
+	std::string get_lastname(){
+		return _lastname;
+	}
+	std::string get_nickname(){
+		return _nickname;
+	}
+	std::string get_login(){
+		return _login;
+	}
+	std::string get_postcode(){
+		return _postcode;
+	}
+	std::string get_email(){
+		return _email;
+	}
+	std::string get_phone(){
+		return _phone;
+	}
+	std::string get_bday(){
+		return _bday;
+	}
+	std::string get_meal(){
+		return _meal;
+	}
+	std::string get_underwear(){
+		return _underwear;
+	}
+	std::string get_secret(){
+		return _secret;
+	}
+};
 
 class phonebook
 {
 private:
-	char *name[7];
-	char *lastname[7];
-	char *nickname[7];
-	char *login[7];
-	char *postcode[7];
-	char *email[7];
-	char *phone[7];
-	char *bday[7];
-	char *meal[7];
-	char *underwear[7];
-	char *secret[7];
+	contact contacts[8];
 
 public:
-	phonebook()
-	{
-		int i;
-		std::string command;
-
-		i = 0;
-		std::cout << "Please enter your command now:" << std::endl;
-    	std::cin >> command;
-    	while (command.compare("EXIT") != 0)
-    	{   
-        	if (command.compare("ADD") == 0)
-        	{
-            	add_contact(i);
-				if (i < 7)
-					i++;
-            	std::cout << "lol" << std::endl;
-       		}
-        	else if (command.compare("SEARCH") == 0)
-        	{
-            	//search_phonebook();
-            	std::cout << "lmao" << std::endl;
-        	}
-        	else
-        	{
-            	std::cout << "Sorry, that command does not exist." << std::endl;
-            	std::cout << "Write: ADD to add contacts, SEARCH to find contacts and EXIT to leave" << std::endl;
-        	}
-        	std::cout << "Anything else?" << std::endl;
-        	std::cin >> command;
-    	}
-		return ;
-
-	}
-	void add_contact(int count);
-	void search_phonebook(void);
+	phonebook();
+	void add_contact(contact contact);
+	void search_phonebook(contact *contacts, int nb);
 };
 
 #endif
