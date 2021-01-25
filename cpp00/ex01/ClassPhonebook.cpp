@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/13 21:44:07 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/01/25 20:25:36 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/01/25 20:30:55 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,7 +195,7 @@ phonebook::phonebook(void)
 					add_contact(contacts, 7);
 				else
 				{
-					if (command.compare("N"))
+					if (command.compare("N") != 0)
 						std::cout << "command not found\n";
 					std::cout << "Contact not added." << std::endl;
 			}
