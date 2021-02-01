@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/13 21:44:07 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/01/25 20:30:55 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/01/26 20:18:54 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	phonebook::add_contact(contact *contact, int nb)
 		}
 		else
 			std::cout << "Please write Y or N\n";
+	}
 }
 
 void	phonebook::print_values(contact *contact, int i)
@@ -175,7 +176,7 @@ phonebook::phonebook(void)
 	std::cout << "Please enter your command now:" << std::endl;
     while (command.compare("EXIT") != 0)
     {   
-		std::cout << "INPUT COMMAND> ";
+		std::cout << "\033[1;36mINPUT COMMAND>\033[0m";
 		std::getline(std::cin, command);
 		if (command.compare("EXIT") == 0)
 			return ;
@@ -198,8 +199,9 @@ phonebook::phonebook(void)
 					if (command.compare("N") != 0)
 						std::cout << "command not found\n";
 					std::cout << "Contact not added." << std::endl;
-			}
-        }
+				}
+        	}
+		}
         else if (command.compare("SEARCH") == 0)
             search_phonebook(contacts, i);
         else

@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/13 21:44:12 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/01/25 19:55:21 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/01/26 20:16:50 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 #include <stdexcept>
 
 #include "ClassContact.hpp"
+
+# define BLUE \033[1;36m
+# define STOP \033[0m
+
 
 class phonebook
 {
