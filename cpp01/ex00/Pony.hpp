@@ -6,9 +6,12 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/01 21:25:29 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/02/08 14:32:50 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/02/08 21:38:51 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PONY_HPP
+#define PONY_HPP
 
 #include <iostream>
 #include <iomanip>
@@ -37,4 +40,4 @@ class Pony
 void PonyOnTheHeap();
 void PonyOnTheStack();
 
-
+#endif
