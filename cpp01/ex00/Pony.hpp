@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/01 21:25:29 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/02/01 22:17:41 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/02/08 14:32:50 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,24 @@
 
 class Pony
 {
-	std::string mane_color, eye_color, coat_color;
-	std::string breed;
-	int height, weight;
-	
-	Pony *PonyOnTheHeap(Pony *heappony, std::string mane_color, std::string eye_color, std::string breed, int height, int weight);
-
-	Pony PonyOnTheStack(Pony stackpony, std::string mane_color, std::string eye_color, std::string breed, int height, int weight);
+	private:
+		std::string _name;
+		std::string _mane, _eyes, _coat;
+		std::string _breed;
+		int _height, _weight;
+	public:
+		Pony(std::string name, std::string mane, std::string eye, std::string coat, std::string breed, int height, int weight);
+		~Pony();
+		std::string get_name();
+		std::string get_mane();
+		std::string get_eyes();
+		std::string get_coat();
+		std::string get_breed();
+		int get_weight();
+		int get_height();
 };
+
+void PonyOnTheHeap();
+void PonyOnTheStack();
 
 
