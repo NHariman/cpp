@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/08 22:37:42 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/02/09 00:19:48 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/02/11 17:46:04 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ ZombieHorde::ZombieHorde(int n)
 	_hordesize = n;
 	while (i < n)
 	{
-		_zombies[i].Make_Zombie(names[rand() % 5], types[rand() % 5]);
+		_zombies[i] = Zombie(names[rand() % 5], types[rand() % 5]);
+		//_zombies[i].Make_Zombie(names[rand() % 5], types[rand() % 5]);
 		i++;
 	}
 }
