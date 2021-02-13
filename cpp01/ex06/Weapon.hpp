@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Weapon.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/02/13 18:49:44 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/02/13 20:32:36 by nhariman      ########   odam.nl         */
+/*   Created: 2021/02/13 22:40:28 by nhariman      #+#    #+#                 */
+/*   Updated: 2021/02/13 22:53:07 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-int			main(void)
+#include <iostream> //to use cout
+#include <string> //string stuff
+#include <sstream> // manipulate std::strings
+
+class Weapon
 {
-	Human		bob;
+	private:
+		std::string _type;
+	public:
+		Weapon();
+		Weapon(std::string type);
+		~Weapon();
+		const	std::string		&getType();
+		void					setType(std::string type);
+};
 
-	std::cout << bob.identify() << std::endl;
-	std::cout << bob.getBrain().identify() << std::endl;
-	return (0);
-}
+#endif
