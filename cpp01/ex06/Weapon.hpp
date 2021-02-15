@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/13 22:40:28 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/02/15 23:10:33 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/02/15 23:29:37 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Weapon
 		Weapon();
 		Weapon(std::string type);
 		~Weapon();
-		const	std::string		&getType();
+		const	std::string		&getType(); // gets the address of where the type is found.
 		void					setType(std::string type);
 };
 
