@@ -6,11 +6,15 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/13 22:59:12 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/02/13 23:37:40 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/02/15 23:09:52 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
+
+//HumanA has Weapon class Weapon &Weapon, it is directly assigned
+//so it can be put directly in through member initialisation
+// https://en.cppreference.com/w/cpp/language/constructor
 
 HumanA::HumanA(std::string name, Weapon &weapon): _name(name), _weapon(weapon)
 {}

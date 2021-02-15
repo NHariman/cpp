@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/13 23:57:37 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/02/14 23:26:27 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/02/15 23:04:45 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ int					main(int ac, char **av)
 		std::cout << "Please provide a file, a chunk to replace, and content to replace it with.\n";
 		return (1);
 	}
-	if (input_check(av))
+	if (input_check(av)) // checks if the input is valid, that all fields are filled and not empty.
 		return (1);
-	if (fill_buf(av[1], &buf))
+	if (fill_buf(av[1], &buf)) // read the file and store it in buf
 		return (1);
-	text.setText(buf);
-	text.setStr(av[2], av[3]);
-	text.swapText();
-	if (text.makeFile(av[1]))
+	text.setText(buf); // set buf in the Replace class, pointed to by text.
+	text.setStr(av[2], av[3]); // convert the char * s1 and s2 into std::strings and save them in the Replace class
+	text.swapText(); // perform the replace action
+	if (text.makeFile(av[1])) //save result in new file with .replace tag.
 		return (1);
 	return (0);
 }

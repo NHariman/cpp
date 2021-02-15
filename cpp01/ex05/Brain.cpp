@@ -6,19 +6,17 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/13 18:12:00 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/02/13 20:58:06 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/02/15 23:12:35 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
 Brain::Brain(): _grey_matter(5), _white_matter(5), _neurons(5)
-{
-}
+{}
 
 Brain::~Brain()
-{
-}
+{}
 
 int			Brain::get_gm()
 {

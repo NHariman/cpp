@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/13 22:53:47 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/02/13 23:37:49 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/02/15 23:04:42 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class HumanA
 {
 	private:
 		std::string _name;
-		Weapon 		&_weapon;
+		Weapon 		&_weapon; // address because it's directly assigned
 	public:
 		HumanA(std::string name, Weapon &weapon);
 		~HumanA();
