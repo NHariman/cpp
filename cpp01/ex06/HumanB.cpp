@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/13 23:43:51 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/02/15 23:05:26 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/02/15 23:29:09 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ HumanB::~HumanB()
 {}
 
 //because Weapon is set later, the address is used to connect the two pointers with one another.
+// if you use a pointer, your set function uses an address. HumanB has Weapon *_weapon.
 void		HumanB::setWeapon(Weapon &weapon)
 {
 	this->_weapon = &weapon;
