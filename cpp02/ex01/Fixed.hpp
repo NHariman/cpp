@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 23:33:45 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/04/26 15:15:12 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/04/26 19:50:49 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,16 @@ class	Fixed
 	public:
 		Fixed();
 		~Fixed();
-		Fixed(Fixed &nb);
-		Fixed& 	operator= (const Fixed &fixed);
+		Fixed(int const nb);
+		Fixed(float const nb);
+		Fixed(Fixed const &nb);
+		Fixed& 	operator= (Fixed const &fixed);
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 };
+
+std::ostream& operator<< (std::ostream &out, Fixed const& fixed);
 
 #endif

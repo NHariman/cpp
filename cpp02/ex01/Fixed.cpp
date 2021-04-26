@@ -6,11 +6,12 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 23:33:30 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/04/26 15:33:55 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/04/26 19:54:31 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 
 Fixed::Fixed()
 {
@@ -18,22 +19,38 @@ Fixed::Fixed()
 	this->_fpv = 0;
 }
 
+Fixed::Fixed(int const nb)
+{
+	std::cout << "int constructor called" << std::endl;
+	this->_fpv = roundf(nb * (1 << this->_fb));
+}
+
+Fixed::Fixed(float const nb)
+{
+	std::cout << "float constructor called" << std::endl;
+	this->_fpv = roundf(nb * (1 <<this->_fb));
+}
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed &nb) : _fpv(nb._fpv)
+Fixed::Fixed(Fixed const &nb) : _fpv(nb._fpv)
 {
 	std::cout << "copy constructor called" << std::endl;
 }
 
-Fixed& 	Fixed::operator= (const Fixed &fixed)
+Fixed& 	Fixed::operator= (Fixed const &fixed)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	this->_fpv = fixed.getRawBits();
+	this->_fpv = fixed._fpv;
 	return (*this);
-	
+}
+
+std::ostream& operator<< (std::ostream &out, Fixed const& fixed)
+{
+	return out << fixed.toFloat();	
 }
 
 int		Fixed::getRawBits(void) const
@@ -47,4 +64,14 @@ void	Fixed::setRawBits(int const raw)
 	std::cout << "SetRawBits member function called" << std::endl;
 	this->_fpv = raw;
 	std::cout << "RawBits have been set to:" << this->_fpv << std::endl;
+}
+
+float	Fixed::toFloat(void) const
+{
+	return ((float)this->_fpv / (float)(1 << this->_fb));
+}
+
+int		Fixed::toInt(void) const
+{
+	return (this->_fpv / (int)(1 << this->_fb));
 }
