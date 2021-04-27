@@ -7,16 +7,16 @@
 
 class	FragTrap
 {
-	private:
-		unsigned int 			_hp;
-		static const int 		_maxhp = 100;
-		unsigned int			_energy;
-		static const int		_maxenergy = 100;
-		int						_lvl;
-		std::string				_name;
-		int			_atk_m; // melee attack damage
-		int			_atk_r; // ranged attack dmg
-		int			_def; //armor damage reduction
+	// private:
+	// 	unsigned int 			_hp;
+	// 	static const int 		_maxhp = 100;
+	// 	unsigned int			_energy;
+	// 	static const int		_maxenergy = 100;
+	// 	int						_lvl;
+	// 	std::string				_name;
+	// 	int			_atk_m; // melee attack damage
+	// 	int			_atk_r; // ranged attack dmg
+	// 	int			_def; //armor damage reduction
 	public:
 		FragTrap();
 		FragTrap(std::string name);

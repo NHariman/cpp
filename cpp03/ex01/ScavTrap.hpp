@@ -1,11 +1,11 @@
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include <iostream>
 #include <cstdlib>
 #include "colours.hpp"
 
-class	FragTrap
+class	ClapTrap
 {
 	private:
 		unsigned int 			_hp;
@@ -18,22 +18,22 @@ class	FragTrap
 		int			_atk_r; // ranged attack dmg
 		int			_def; //armor damage reduction
 	public:
-		FragTrap();
-		FragTrap(std::string name);
-		~FragTrap();
+		ScavTrap();
+		ScavTrap(std::string name);
+		~ScavTrap();
 		void	rangedAttack(std::string const & target);
 		void	meleeAttack(std::string const & target);
 		void	beRepaired(unsigned int amount);
 		std::string	getName(void);
 		void		setName(std::string name);
 		void	takeDamage(unsigned int amount);
-		std::string randomAttackName(int atk);
+		std::string randomQuestName(int nb);
 		std::string	randomDamageQuote(void);
 		std::string	randomHealQuote(void);
 		std::string	randomRangedQuote(void);
 		std::string	randomMeleeQuote(void);
 
-		void	vaulthunter_dot_exe(std::string const &target);
+		void	challengeNewcomer(std::string const &target);
 };
 
 #endif
