@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/13 21:44:07 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/01/26 20:18:54 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/05/10 15:24:36 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	is_number(std::string s)
 void	phonebook::search_phonebook(contact *contacts, int nb)
 {
 	int 		i;
-	int			num;
+	long		num;
 	std::string name;
 	std::string lastname;
 	std::string nickname;
@@ -158,7 +158,7 @@ void	phonebook::search_phonebook(contact *contacts, int nb)
 	std::cout << "Select an index [0-7]:\n> ";
 	std::getline(std::cin, index);
 	if (is_number(index))
-		num = std::stol(index);
+		num = std::atol(index.std::string::c_str());
 	else
 		num = -1;
 	if (num < 8 && num >= 0 && num <= nb)
