@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/21 13:16:43 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/09/28 20:37:01 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/09/28 20:47:32 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ Account::~Account( void )
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
 }
 
-//[19920104_091532] index:0;p_amount:42;deposit:5;amount:47;nb_deposits:1
 void	Account::makeDeposit( int deposit )
 {
 	_displayTimestamp();
@@ -106,7 +105,6 @@ void	Account::makeDeposit( int deposit )
 	std::cout << "nb_deposits:" << this->_nbDeposits << std::endl;
 }
 
-//[19920104_091532] index:1;p_amount:819;withdrawal:34;amount:785;nb_withdrawals:1
 bool	Account::makeWithdrawal( int withdrawal )
 {
 	_displayTimestamp();
@@ -128,16 +126,11 @@ bool	Account::makeWithdrawal( int withdrawal )
 	return 1;
 }
 
-//[19920104_091532] index:0;amount:47;deposits:1;withdrawals:0
 int		Account::checkAmount( void ) const
 {
 	return (_amount);
 }
 
-
-
-//[19920104_091532] index:0;amount:47;closed
-//[19920104_091532] index:0;amount:42;created
 void	Account::displayStatus( void ) const
 {
 	_displayTimestamp();
