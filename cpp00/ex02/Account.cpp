@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/21 13:16:43 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/09/28 20:47:32 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/09/29 14:42:18 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 	std::cout << "withdrawal:";
 	if (withdrawal > this->checkAmount())
 	{
-		std::cout << "refused;\n";
+		std::cout << "refused\n";
 		return 0;
 	}
 	std::cout << withdrawal << ";";

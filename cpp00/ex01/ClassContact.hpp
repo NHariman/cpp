@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/20 09:17:46 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/09/21 13:02:11 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/09/29 19:20:50 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ private:
 	std::string _phone;
 	std::string _secret;
 public:
+	contact();
+	~contact();
 	void set_values(std::string nm, std::string ln,
 			std::string nn, std::string ph, std::string sc);
 	std::string get_name();

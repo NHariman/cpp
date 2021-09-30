@@ -6,14 +6,14 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/13 21:44:07 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/09/21 13:31:12 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/09/30 19:21:20 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iomanip>
 #include "ClassPhonebook.hpp"
 
-int	is_number(std::string s)
+static int	is_number(std::string s)
 {
 	for (int i = 0; i < (int)s.length(); i++)
         if (isdigit(s[i]) == 0)
@@ -143,9 +143,10 @@ void	phonebook::search_phonebook(contact *contacts, int nb)
 		std::cout << "Invalid input\n";
 }
 
-phonebook::phonebook(void)
+void	phonebook::start_main(void)
 {
 	std::string command;
+	int	full = 0;
 	int i;
 
 	i = 0;
@@ -160,20 +161,28 @@ phonebook::phonebook(void)
 			return ;
         else if (command.compare("ADD") == 0)
         {
-			if (i < 8)
+			if (i < 8 && full == 0)
 			{
 				add_contact(contacts, i);
 				i++;
 			}
 			else
 			{
-				std::cout << "Phonebook is full! Your first contact will be overwritten." << std::endl;
+				std::cout << "Phonebook is full! Your OLDEST contact will be overwritten." << std::endl;
 				std::cout << "Continue? Y/N" << std::endl;
 				std::getline(std::cin, command);
 				if (!std::cin)
 					exit (0);
 				if (command.compare("Y") == 0)
-					add_contact(contacts, 0);
+				{
+					if (full == 0)
+					{
+						full = 1;
+						i = 0;
+					}
+					add_contact(contacts, i);
+					i++;
+				}
 				else
 				{
 					if (command.compare("N") != 0)
@@ -191,4 +200,18 @@ phonebook::phonebook(void)
 			std::cout << "THIS PROGRAM IS CASE SENSITIVE" << std::endl;
         }
     }
+}
+
+phonebook::phonebook(void)
+{
+	std::cout << "Welcome to your phonebook!" << std::endl;
+    std::cout << "Use ADD to add contacts, SEARCH to check your phonebook and EXIT to quit" << std::endl;
+    std::cout << "WARNING! All your contacts will be deleted once you write EXIT." << std::endl;
+    std::cout << "THIS PROGRAM IS CASE SENSITIVE\n\"add\" WILL NOT BE RECOGNISED BUT \"ADD\" WILL." << std::endl;
+    start_main();
+}
+
+phonebook::~phonebook(void)
+{
+	std::cout << "Your contacts have been deleted. Goodbye!" << std::endl;
 }

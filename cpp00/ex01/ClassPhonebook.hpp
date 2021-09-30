@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/13 21:44:12 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/01/26 20:16:50 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/09/30 19:18:29 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ class phonebook
 {
 	private:
 		contact contacts[8];
+		void		start_main(void);
+		void		add_contact(contact *contacts, int nb);
+		std::string	get_input(std::string str);
+		void		search_phonebook(contact *contacts, int nb);
+		void		print_values(contact *contacts, int nb);
 	public:
 		phonebook();
-		void add_contact(contact *contacts, int nb);
-		std::string get_input(std::string str);
-		void search_phonebook(contact *contacts, int nb);
-		void print_values(contact *contacts, int nb);
+		~phonebook();
 };
 
 #endif

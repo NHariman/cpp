@@ -6,11 +6,21 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/20 09:17:41 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/09/21 13:01:08 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/09/29 19:21:21 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClassContact.hpp"
+
+contact::contact(void)
+{
+	return ;
+}
+
+contact::~contact(void)
+{
+	return ;
+}
 
 void contact::set_values(std::string nm, std::string ln, std::string nn, 
 std::string ph, std::string sc)
