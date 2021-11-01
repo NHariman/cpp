@@ -6,15 +6,17 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 00:06:27 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/02/14 23:25:02 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/11/01 21:59:12 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Replace.hpp"
 
-Replace::Replace(){}
+Replace::Replace()
+{}
 
-Replace::~Replace(){}
+Replace::~Replace()
+{}
 
 void		Replace::setText(std::string &text)
 {

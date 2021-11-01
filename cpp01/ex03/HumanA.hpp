@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   HumanA.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/11/01 14:20:26 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/11/01 16:24:03 by nhariman      ########   odam.nl         */
+/*   Created: 2021/11/01 18:52:08 by nhariman      #+#    #+#                 */
+/*   Updated: 2021/11/01 21:38:46 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef _HUMAN_A
+#define _HUMAN_A
 
-int		main(void)
-{
-	Zombie	*joinks = NULL; // this instantiates a zombie pointer
-	Zombie	jinkies;
-	joinks = joinks->newZombie("Fred"); // Malloc because it uses new which is cpp malloc
-	joinks->announce(); // show that fred exists
-	jinkies.randomChump("Daphne");
-	delete joinks; // because joinks is on the heap you have to free it.
-	return (0);
-}
+#include "Weapon.hpp"
+
+class	HumanA{
+	private:
+		std::string _name;
+		Weapon		&_weapon;
+		HumanA();
+	public:
+		HumanA(std::string name, Weapon& Weapon);
+		~HumanA();
+		void	attack() const;
+};
+
+#endif

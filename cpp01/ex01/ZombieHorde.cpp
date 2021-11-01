@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ZombieHorde.cpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/11/01 14:20:26 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/11/01 16:24:03 by nhariman      ########   odam.nl         */
+/*   Created: 2021/02/08 22:37:42 by nhariman      #+#    #+#                 */
+/*   Updated: 2021/11/01 18:14:32 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int		main(void)
+Zombie*		Zombie::zombieHorde(int n, std::string name)
 {
-	Zombie	*joinks = NULL; // this instantiates a zombie pointer
-	Zombie	jinkies;
-	joinks = joinks->newZombie("Fred"); // Malloc because it uses new which is cpp malloc
-	joinks->announce(); // show that fred exists
-	jinkies.randomChump("Daphne");
-	delete joinks; // because joinks is on the heap you have to free it.
-	return (0);
+	Zombie	*horde = NULL;
+	std::string names[6] = {"Charles", "Chuck", "Arnoud", "Thaly", "Sophie", "Henrie"};
+	int i = 0;
+	horde = new Zombie[n];
+	while (i < n)
+	{
+		if (i == 0)
+			horde[i]._name = name;
+		else
+			horde[i]._name = names[rand() % 5];
+		i++;
+	}
+	return (horde);
 }
