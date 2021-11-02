@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 00:06:27 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/11/01 21:59:12 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/11/02 13:08:47 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,13 @@ std::string	Replace::getText()
 	return *this->_text;
 }
 
-void		Replace::setStr(char *s1, char *s2)
+int		Replace::setStr(char *s1, char *s2)
 {
 	this->_s1 = std::string(s1);
 	this->_s2 = std::string(s2);
+	if (!this->_s1.compare(this->_s2))
+		return (0);
+	return (1);
 }
 
 void 		Replace::swapText()
@@ -38,9 +41,12 @@ void 		Replace::swapText()
 	int 		len = this->_s1.length();
 	std::size_t	found = this->_text->find(this->_s1);;
 
+
+	//this->_text->replace(found, len, this->_s2);
 	while (found != std::string::npos)
 	{
-		this->_text->replace(found, len, this->_s2);
+		this->_text->erase(found, len);
+		this->_text->insert(found, this->_s2);
 		found = this->_text->find(this->_s1);
 	}
 }
