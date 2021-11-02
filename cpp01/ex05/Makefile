@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: nhariman <nhariman@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2021/01/13 21:32:07 by nhariman      #+#    #+#                  #
-#    Updated: 2021/11/02 13:27:36 by nhariman      ########   odam.nl          #
+#    Created: 2021/11/02 13:27:11 by nhariman      #+#    #+#                  #
+#    Updated: 2021/11/02 15:03:30 by nhariman      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,24 +15,22 @@ COMPILE = clang++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 FILES = main.cpp \
-		Replace.cpp
+		Karen.cpp
 
 OFILES = $(FILES:.cpp=.o)
 
-NAME = replace
+NAME = karen
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
 	@$(COMPILE) $(OFILES) -o $@
 
-%.o: %.cpp Replace.hpp
+%.o: %.cpp Karen.hpp
 	@$(COMPILE) $(FLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OFILES)
 
 fclean: clean
-	@$(RM) $(NAME) *.replace
-
-re: fclean all
+	@$(RM) $(NAME)
