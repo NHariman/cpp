@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/08 21:50:26 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/11/01 17:58:35 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/01 14:52:17 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ int		main(void)
 			num = -1;
 		if (num < 100 && num > 0)
 		{
-			final = num;
-			std::cout << final << std::endl;
+			std::cout << num << std::endl;
 			break ;
 		}
 		else
@@ -55,6 +54,7 @@ int		main(void)
 	}
 	horde = horde->zombieHorde(num, "Start");
 	std::cout << "\nLet's meet them!\n";
+	
 	int i = 0;
 	while (i < num)
 	{

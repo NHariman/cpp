@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 23:33:45 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/11/29 19:59:33 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/01 14:58:32 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ class	Fixed
 		Fixed(float const nb);
 		Fixed(Fixed const &nb);
 		Fixed& 	operator= (Fixed const &fixed);
-		Fixed&	operator> (Fixed &fixed);
-		Fixed&	operator< (Fixed &fixed);
-		Fixed&	operator>= (Fixed &fixed);
-		Fixed&	operator<=	(Fixed &fixed);
-		Fixed&	operator== (Fixed &fixed);
-		Fixed&	operator!= (Fixed &fixed);
-		Fixed	operator+ (Fixed &fixed);
-		Fixed&	operator- (Fixed &fixed);
-		Fixed&	operator* (Fixed &fixed);
-		Fixed&	operator/ (Fixed &fixed);
-		Fixed&	operator++ (Fixed &fixed);
+		bool	operator> (Fixed &fixed) const;
+		bool	operator< (Fixed &fixed) const;
+		bool	operator>= (Fixed &fixed) const;
+		bool	operator<=	(Fixed &fixed) const;
+		bool	operator== (Fixed &fixed) const;
+		bool	operator!= (Fixed &fixed) const;
+		Fixed	operator+ (Fixed &fixed) const;
+		Fixed	operator- (Fixed &fixed) const;
+		Fixed	operator* (Fixed &fixed) const;
+		Fixed	operator/ (Fixed &fixed) const;
+		Fixed&	operator++ (Fixed &fixed) const;
 		Fixed	operator++ (int);
 		Fixed&	operator-- (Fixed &fixed);
 		Fixed	operator-- (int);

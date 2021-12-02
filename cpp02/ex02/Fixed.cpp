@@ -6,12 +6,18 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 23:33:30 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/11/29 21:28:37 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/01 15:06:50 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
+
+// https://www.embeddedrelated.com/showarticle/1015.php
+// on why rounding is fine and bitshifting
+
+// https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/
+// fixed point conversion in c, can be translated to cpp
 
 Fixed::Fixed()
 {

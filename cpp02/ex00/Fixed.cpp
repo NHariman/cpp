@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 23:33:30 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/04/26 15:33:55 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/11/30 17:55:45 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed &nb) : _fpv(nb._fpv)
+Fixed::Fixed(Fixed &nb) :
 {
 	std::cout << "copy constructor called" << std::endl;
+	this->_fpv = nb.getRawBits();
 }
 
 Fixed& 	Fixed::operator= (const Fixed &fixed)
