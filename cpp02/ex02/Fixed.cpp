@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 23:33:30 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/12/01 15:06:50 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/07 22:18:27 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,60 +82,111 @@ int		Fixed::toInt(void) const
 	return (this->_fpv / (int)(1 << this->_fb));
 }
 
-Fixed::Fixed	Fixed::operator+ (Fixed &fixed) const
+// https://en.cppreference.com/w/cpp/language/operator_arithmetic
+
+Fixed::Fixed	Fixed::operator+ (const Fixed &fixed) const
 {
 	Fixed	fix;
-	fix._fpv = this->_fpv + fixed._fpv;
+	fix._fpv = _fpv + fixed._fpv;
 	return fix;
 }
 
-Fixed::Fixed	Fixed::operator- (Fixed &fixed) const
+Fixed::Fixed	Fixed::operator- (const Fixed &fixed) const
 {
 	Fixed	fix;
-	fix._fpv = this->_fpv - fixed._fpv;
+	fix._fpv = _fpv - fixed._fpv;
 	return fix;
 }
 
-Fixed::Fixed	Fixed::operator* (Fixed &fixed) const
+Fixed::Fixed	Fixed::operator* (const Fixed &fixed) const
 {
 	Fixed	fix;
-	fix._fpv = this->_fpv * fixed._fpv;
+	fix._fpv = _fpv * fixed._fpv;
 	return fix;
 }
 
-Fixed::Fixed	Fixed::operator/ (Fixed &fixed) const
+Fixed::Fixed	Fixed::operator/ (const Fixed &fixed) const
 {
 	Fixed	fix;
-	fix._fpv = this->_fpv / fixed._fpv;
+	fix._fpv = _fpv / fixed._fpv;
 	return fix;
 }
+
+// https://en.cppreference.com/w/cpp/language/operator_comparison
 
 bool	Fixed::operator> (Fixed &fixed) const
 {
-
+	if (_fpv > fixed._fpv)
+		return (true);
+	return (false);
 }
 
 bool	Fixed::operator< (Fixed &fixed) const
 {
-
+	if (_fpv < fixed._fpv)
+		return (true);
+	return (false);
 }
 
 bool	Fixed::operator>= (Fixed &fixed) const
 {
-
+	if (_fpv >= fixed._fpv)
+		return (true);
+	return (false);
 }
 
 bool	Fixed::operator<=	(Fixed &fixed) const
 {
-
+	if (_fpv <= fixed._fpv)
+		return (true);
+	return (false);
 }
 
 bool	Fixed::operator== (Fixed &fixed) const
 {
-
+	if (_fpv == fixed._fpv)
+		return (true);
+	return (false);
 }
 
 bool	Fixed::operator!= (Fixed &fixed) const
 {
+	if (_fpv != fixed._fpv)
+		return (true);
+	return (false);
+}
 
+// increment operators https://en.cppreference.com/w/cpp/language/operator_incdec
+
+Fixed&	Fixed::operator++ ()
+{
+	++this->_fpv;
+}
+
+Fixed	Fixed::operator++ (int);
+{
+	this->_fpv++;
+}
+
+Fixed&	Fixed::operator-- ();
+{
+	--this->_fpv;
+}
+Fixed	Fixed::operator-- (int);
+{
+	this->_fpv--;
+}
+
+static	Fixed&	Fixed::min(const Fixed& val1, const Fixed& val2)
+{
+	if (val1._fpv > val2._fpv)
+		return (val2);
+	return (val1);
+}
+
+static	Fixed&	Fixed::max(const Fixed& val1, const Fixed& val2);
+{
+	if (val1._fpv < val2._fpv)
+		return (val2);
+	return (val1);
 }
