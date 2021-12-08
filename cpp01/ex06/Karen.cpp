@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 14:40:49 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/12/08 21:51:29 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/08 21:57:16 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ void		Karen::complain(std::string level)
 									&Karen::error};
 	const std::string	levels[] = { "DEBUG", "INFO", "WARNING", "ERROR"};
 
-
+	// works because in the array of levels, it finds the level
+	// We can also use the std::find algorithm, which returns an iterator that points to the target value.
+	// https://www.techiedelight.com/find-index-element-array-cpp/
 	int	complaint = std::find(levels, levels + 4, level) - levels;
 	if (complaint < 0 || complaint > 3)
 		std::cout << "Undefined Level" << std::endl;
