@@ -45,8 +45,7 @@ int		main(void)
 
 	std::cout << "small num > large num, should output false" << std::endl;
 	if (d > e)
-		std::cout << "TRUE" << std::endl;
-	else
+fs	else
 		std::cout << "FALSE" << std::endl;
 
 	std::cout << "same number on both sides, should output false" << std::endl;

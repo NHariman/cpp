@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 14:40:49 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/11/03 17:18:12 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/08 21:51:29 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ Karen::~Karen(){}
 
 void		Karen::debug(void)
 {
-	std::cout << "I love to get extra baconfor my 7XL-double-cheese-triple-pickle-special-ketchup burger. I just love it!" << std::endl;
+	std::cout << "Debugging is my absolute favourite thing to do, I just love fixing problems :))))" << std::endl;
 }
 
 void		Karen::info(void)
 {
-	std::cout << "I cannot believe adding extra bacon cost more money. You don’t put enough! If you did I would not have to askfor it!" << std::endl;
+	std::cout << "The code is so ugly and incomprehensible!! If you taught people how to code better we wouldn't be in this situation!!!!" << std::endl;
 }
 
 void		Karen::warning(void)
 {
-	std::cout << "I think I deserve to have some extra bacon for free. I’ve beencoming here for years and you just started working here last month." << std::endl;
+	std::cout << "I think someone should do this work for me, because it's really not my fault my code is so bad! I learnt it wrong from here!!" << std::endl;
 }
 
 void		Karen::error(void)
 {
-	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
+	std::cout << "It is absolutely ridiculous that I have to be responsible for my own actions, I'm contacting staff." << std::endl;
 }
 
 void		Karen::complain(std::string level)

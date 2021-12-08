@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/08 21:50:26 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/12/01 14:52:17 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/08 20:56:35 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static int	is_number(std::string s)
 {
+	if (s.empty())
+		return 0;
 	for (int i = 0; i < (int)s.length(); i++)
         if (isdigit(s[i]) == 0)
             return 0;
@@ -23,7 +25,7 @@ static int	is_number(std::string s)
 int		main(void)
 {
 	std::string index;
-	Zombie	*horde = NULL;
+	Zombie	*horde;
 	int num = -1;
 
 	std::cout << "Welcome to a zombie apocalypse tour part two!\n";
@@ -35,10 +37,10 @@ int		main(void)
 	while (num == -1)
 	{
 		if (is_number(index))
-			num = std::stol(index);
+			num = std::atol(index.std::string::c_str());
 		else
 			num = -1;
-		if (num < 100 && num > 0)
+		if (num <= 100 && num > 0)
 		{
 			std::cout << num << std::endl;
 			break ;
@@ -52,7 +54,7 @@ int		main(void)
 			num = -1;
 		}
 	}
-	horde = horde->zombieHorde(num, "Start");
+	horde = zombieHorde(num, "Start");
 	std::cout << "\nLet's meet them!\n";
 	
 	int i = 0;
