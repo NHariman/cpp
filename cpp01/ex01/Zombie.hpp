@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/01 13:57:47 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/12/08 21:24:59 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/09 17:21:26 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ class Zombie
 		std::string _name;
 	public:
 		Zombie();
-		Zombie(std::string name);
-		Zombie(const Zombie &obj);
 		~Zombie();
 		void		announce();
 		void		setName(std::string name);

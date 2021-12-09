@@ -6,12 +6,13 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 23:33:30 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/12/08 16:04:50 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/09 22:25:49 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
+#include <cstdio>
 
 // https://www.embeddedrelated.com/showarticle/1015.php
 // on why rounding is fine and bitshifting
@@ -21,35 +22,27 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default Constructor called" << std::endl;
 	this->_fpv = 0;
 }
 
 Fixed::Fixed(int const nb)
 {
-	std::cout << "int constructor called" << std::endl;
 	this->_fpv = roundf(nb * (1 << this->_fb));
 }
 
 Fixed::Fixed(float const nb)
 {
-	std::cout << "float constructor called" << std::endl;
 	this->_fpv = roundf(nb * (1 <<this->_fb));
 }
 
 Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+{}
 
 Fixed::Fixed(Fixed const &nb) : _fpv(nb._fpv)
-{
-	std::cout << "copy constructor called" << std::endl;
-}
+{}
 
 Fixed& 	Fixed::operator= (Fixed const &fixed)
 {
-	std::cout << "Assignation operator called" << std::endl;
 	this->_fpv = fixed._fpv;
 	return (*this);
 }
@@ -61,15 +54,12 @@ std::ostream& operator<< (std::ostream &out, Fixed const& fixed)
 
 int		Fixed::getRawBits(void) const
 {
-	std::cout << "GetRawBits member function called" << std::endl;
 	return this->_fpv;
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "SetRawBits member function called" << std::endl;
 	this->_fpv = raw;
-	std::cout << "RawBits have been set to:" << this->_fpv << std::endl;
 }
 
 float	Fixed::toFloat(void) const
@@ -84,35 +74,39 @@ int		Fixed::toInt(void) const
 
 // https://en.cppreference.com/w/cpp/language/operator_arithmetic
 
-Fixed::Fixed	Fixed::operator+ (const Fixed &fixed) const
+Fixed	Fixed::operator+ (const Fixed &fixed) const
 {
 	Fixed	fix;
 	fix._fpv = _fpv + fixed._fpv;
 	return fix;
 }
 
-Fixed::Fixed	Fixed::operator- (const Fixed &fixed) const
+Fixed	Fixed::operator- (const Fixed &fixed) const
 {
 	Fixed	fix;
 	fix._fpv = _fpv - fixed._fpv;
 	return fix;
 }
 
-Fixed::Fixed	Fixed::operator* (const Fixed &fixed) const
+// multiplication with fixed point numbers:
+// multiply into larger sized variable, then rightshift by the number of bits of fixed point precision.
+Fixed	Fixed::operator* (const Fixed &fixed) const
 {
 	Fixed	fix;
-	fix._fpv = _fpv * fixed._fpv;
+	fix._fpv = (_fpv * fixed._fpv) / (1 << _fb);
 	return fix;
 }
 
-Fixed::Fixed	Fixed::operator/ (const Fixed &fixed) const
+Fixed	Fixed::operator/ (const Fixed &fixed) const
 {
 	Fixed	fix;
-	fix._fpv = _fpv / fixed._fpv;
+	fix._fpv = (_fpv / fixed._fpv) * (1 << _fb);
 	return fix;
 }
 
 // https://en.cppreference.com/w/cpp/language/operator_comparison
+
+// OVERLOAD INSIDE CLASS
 
 bool	Fixed::operator> (Fixed &fixed) const
 {
@@ -158,35 +152,36 @@ bool	Fixed::operator!= (Fixed &fixed) const
 
 // increment operators https://en.cppreference.com/w/cpp/language/operator_incdec
 
+//pre-increment
 Fixed&	Fixed::operator++ ()
 {
 	++this->_fpv;
+	return *this;
 }
 
-Fixed	Fixed::operator++ (int);
+//with post-increment you have to make a tmp to store the original value
+Fixed	Fixed::operator++ (int)
 {
+	Fixed	tmp;
+
+	tmp._fpv = this->_fpv;
 	this->_fpv++;
+	return tmp;
 }
 
-Fixed&	Fixed::operator-- ();
+// pre-increment
+Fixed&	Fixed::operator-- ()
 {
 	--this->_fpv;
+	return *this;
 }
-Fixed	Fixed::operator-- (int);
+
+//with post-increment you have to make a tmp to store the original value
+Fixed	Fixed::operator-- (int)
 {
+	Fixed	tmp;
+
+	tmp._fpv = this->_fpv;
 	this->_fpv--;
-}
-
-static	Fixed&	Fixed::min(const Fixed& val1, const Fixed& val2)
-{
-	if (val1._fpv > val2._fpv)
-		return (val2);
-	return (val1);
-}
-
-static	Fixed&	Fixed::max(const Fixed& val1, const Fixed& val2);
-{
-	if (val1._fpv < val2._fpv)
-		return (val2);
-	return (val1);
+	return tmp;
 }

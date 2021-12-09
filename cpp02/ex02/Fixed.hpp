@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 23:33:45 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/12/07 22:16:56 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/09 22:24:31 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,40 @@ class	Fixed
 		Fixed	operator- (const Fixed &fixed) const;
 		Fixed	operator* (const Fixed &fixed) const;
 		Fixed	operator/ (const Fixed &fixed) const;
-		Fixed&	operator++ (int);
-		Fixed	operator++ ();
-		Fixed&	operator-- (int);
-		Fixed	operator-- ();
+		Fixed	operator++ (int); // post-increment
+		Fixed&	operator++ (); // pre-increment
+		Fixed	operator-- (int); // post-increment
+		Fixed&	operator-- (); // pre-increment
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 		float	toFloat(void) const;
 		int		toInt(void) const;
-		static	Fixed&	min(const Fixed& val1, const Fixed& val2);
-		static	Fixed&	max(const Fixed& val1, const Fixed& val2);
+		// static functions must be declared WITHIN the class
+		static	Fixed&	min(Fixed& val1, Fixed& val2)
+		{
+			if (val1._fpv > val2._fpv)
+				return (val2);
+			return (val1);
+		}
+		static	Fixed&	max(Fixed& val1, Fixed& val2)
+		{
+			if (val1._fpv < val2._fpv)
+				return (val2);
+			return (val1);
+		}
+		// static functions must be declared WITHIN the class
+		static	const Fixed&	min(const Fixed& val1, const Fixed& val2)
+		{
+			if (val1._fpv > val2._fpv)
+				return (val2);
+			return (val1);
+		}
+		static	const Fixed&	max(const Fixed& val1, const Fixed& val2)
+		{
+			if (val1._fpv < val2._fpv)
+				return (val2);
+			return (val1);
+		}
 };
 
 std::ostream& operator<< (std::ostream &out, Fixed const& fixed);

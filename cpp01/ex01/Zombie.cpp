@@ -6,16 +6,13 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/01 13:56:59 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/12/08 21:25:33 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/09 17:21:32 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 Zombie::Zombie()
-{}
-
-Zombie::Zombie(std::string name) : _name(name)
 {}
 
 Zombie::~Zombie()
