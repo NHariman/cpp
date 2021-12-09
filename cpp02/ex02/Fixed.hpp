@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 23:33:45 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/12/09 22:24:31 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/09 22:38:14 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ class	Fixed
 				return (val2);
 			return (val1);
 		}
-		// static functions must be declared WITHIN the class
+		// static functions must be declared WITHIN the class, this is a function overload
 		static	const Fixed&	min(const Fixed& val1, const Fixed& val2)
 		{
 			if (val1._fpv > val2._fpv)
