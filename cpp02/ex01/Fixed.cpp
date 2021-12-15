@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/14 23:33:30 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/12/07 21:09:28 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/15 20:48:45 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ Fixed::Fixed()
 
 Fixed::Fixed(int const nb)
 {
-	std::cout << "int constructor called" << std::endl;
+	std::cout << "Int constructor called" << std::endl;
 	this->_fpv = roundf(nb * (1 << this->_fb));
 }
 
 Fixed::Fixed(float const nb)
 {
-	std::cout << "float constructor called" << std::endl;
+	std::cout << "Float constructor called" << std::endl;
 	this->_fpv = roundf(nb * (1 << this->_fb));
 }
 
@@ -44,7 +44,7 @@ Fixed::~Fixed()
 
 Fixed::Fixed(Fixed const &nb)
 {
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	this->_fpv = nb._fpv;
 }
 
