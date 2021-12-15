@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/01 18:16:28 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/11/01 18:37:06 by nhariman      ########   odam.nl         */
+/*   Updated: 2021/12/15 20:23:07 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int		main(void)
 	std::string&	stringREF = intro;
 
 	intro = "HI THIS IS  BRAIN";
-	stringPTR = &intro;
 
 	std::cout << "Display address:" << std::endl;
 
