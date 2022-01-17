@@ -3,13 +3,13 @@ COMPILE = clang++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 FILES = ClapTrap.cpp \
-		FragTrap.cpp \
 		ScavTrap.cpp \
+		FragTrap.cpp \
 		main.cpp
 
 OFILES = $(FILES:.cpp=.o)
 
-NAME = claptrap
+NAME = Fragtrap
 
 all: $(NAME)
 

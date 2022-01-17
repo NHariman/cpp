@@ -5,12 +5,12 @@ FLAGS = -Wall -Werror -Wextra -std=c++98
 FILES = ClapTrap.cpp \
 		FragTrap.cpp \
 		ScavTrap.cpp \
-		NinjaTrap.cpp \
+		DiamondTrap.cpp \
 		main.cpp
 
 OFILES = $(FILES:.cpp=.o)
 
-NAME = ninjatrap
+NAME = diamondtrap
 
 all: $(NAME)
 

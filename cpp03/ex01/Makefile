@@ -2,7 +2,7 @@ COMPILE = clang++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-FILES = FragTrap.cpp \
+FILES = ClapTrap.cpp \
 		ScavTrap.cpp \
 		main.cpp
 
