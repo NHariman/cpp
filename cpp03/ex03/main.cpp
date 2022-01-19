@@ -6,12 +6,11 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/16 19:50:18 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/17 15:46:33 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/01/19 14:23:28 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 #include "colours.hpp"
 
 int		main(void)
@@ -66,6 +65,20 @@ int		main(void)
 	helen.beRepaired(2);
 	std::cout << B_BLUE << "FragTrap also has its own function, which can be used too:" << B_WHITE << std::endl;
 	helen.highFivesGuys();
+
+	std::cout << B_GREEN << "The DiamondTrap Test." << B_WHITE << std::endl;
+	std::cout << B_YELLOW << "We will now create a DiamondTrap." << B_WHITE << std::endl;
+	DiamondTrap d("Dia");
+	d.getStats();
+	d.whoAmI();
+	std::cout << B_BLUE << "Diamondtraps can also use Claptrap functions:" << B_WHITE << std::endl;
+	std::cout << B_BLUE << "It uses the claptrap name as it uses claptrap functions" << B_WHITE << std::endl;
+	d.attack("Rando");
+	d.takeDamage(2);
+	d.beRepaired(2);
+	std::cout << B_BLUE << "DiamondTraps use both Scav and Frag Trap specials, which can be used too:" << B_WHITE << std::endl;
+	d.highFivesGuys();
+	d.guardGate();
 
 	std::cout << "THE END" << std::endl;
 	return 0;

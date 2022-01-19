@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 11:58:55 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/17 20:47:32 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/01/19 12:21:11 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,6 @@ ScavTrap::ScavTrap(std::string name)
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap " << this->getName() << " has been destroyed." << std::endl;
-}
-
-void ScavTrap::setHp()
-{
-	this->setHp(100);
-}
-
-void ScavTrap::setEp()
-{
-	this->setEp(50);
-}
-
-void ScavTrap::setDmg()
-{
-	this->setDmg(20);
 }
 
 void	ScavTrap::guardGate()

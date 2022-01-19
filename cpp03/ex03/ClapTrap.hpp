@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/16 17:28:44 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/17 15:48:22 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/01/19 12:23:31 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,12 @@ class	ClapTrap
 	protected:
 		ClapTrap();
 		void		setName(std::string name);
-		void		setHp(unsigned int hp);
-		void		setEp(unsigned int ep);
-		void		setDmg(unsigned int dmg);
 	public:
 		ClapTrap(std::string name);
 		~ClapTrap();
-
+		void		setHp(unsigned int hp);
+		void		setEp(unsigned int ep);
+		void		setDmg(unsigned int dmg);
 		std::string	getName();
 		unsigned int	getHp();
 		unsigned int	getEp();

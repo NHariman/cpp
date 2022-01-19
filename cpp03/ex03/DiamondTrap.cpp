@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 15:57:47 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/17 20:47:05 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/01/19 12:47:30 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 DiamondTrap::DiamondTrap()
 {
 	std::cout << "A nameless DiamondTrap has been created." << std::endl;
-	FragTrap::setHp();
-	ScavTrap::setSp();
-	FragTrap::setDmg();
+	FragTrap::setHp(FragTrap::getHp());
+	ScavTrap::setEp(ScavTrap::getEp());
+	FragTrap::setDmg(FragTrap::getDmg());
 }
 
 void	DiamondTrap::setName(std::string name)
@@ -27,10 +27,10 @@ void	DiamondTrap::setName(std::string name)
 
 DiamondTrap::DiamondTrap(std::string name) : _name(name)
 {
-	this->ClapTrap::setName(name + "_clap_name");
-	FragTrap::setHp();
-	ScavTrap::setSp();
-	FragTrap::setDmg();
+	ClapTrap::setName(name + "_clap_name");
+	FragTrap::setHp(FragTrap::getHp());
+	ScavTrap::setEp(ScavTrap::getEp());
+	FragTrap::setDmg(FragTrap::getDmg());
 	std::cout << "DiamondTrap " << _name << " ClapTrap name: " << ClapTrap::getName() << " has been created." << std::endl;
 
 }
@@ -40,7 +40,7 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "DiamondTrap " << _name << " ClapTrap name: " << ClapTrap::getName() << " has been destroyed." << std::endl;
 }
 
-void	attack(std::string const &target)
+void	DiamondTrap::attack(std::string const &target)
 {
 	ScavTrap::attack(target);
 }

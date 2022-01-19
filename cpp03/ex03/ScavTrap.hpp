@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 11:43:32 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/17 20:46:08 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/01/19 14:01:41 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ class ScavTrap : virtual public ClapTrap
 {
 	protected:
 		ScavTrap();
-		void setHp();
-		void setEp();
-		void setDmg();
 	public:
 		ScavTrap(std::string name);
 		~ScavTrap();

@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 15:26:03 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/17 20:42:42 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/01/19 14:01:39 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ class FragTrap : virtual public ClapTrap
 {
 	protected:
 		FragTrap();
-		void setHp();
-		void setEp();
-		void setDmg();
 	public:
 		FragTrap(std::string name);
 		~FragTrap();
