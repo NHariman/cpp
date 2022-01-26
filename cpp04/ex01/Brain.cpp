@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 17:23:26 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 19:16:38 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/01/26 18:51:57 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ Brain::Brain()
 
 Brain::Brain(Brain& obj)
 {
-	for (int i = 0; i < 100; i++)
-	{
-		ideas[i] = obj.ideas[i];
-	}
+	*this = obj;
 	std::cout << "ideas has been copied over" << std::endl;
 }
 

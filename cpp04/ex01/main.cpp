@@ -6,13 +6,16 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:24:20 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 19:18:38 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/01/26 19:04:43 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongCat.hpp"
+
+// TODO: still needs to show ideas can be added
+// TODO: make sure ideas can be added, add copy overload
 
 int		main(void)
 {
@@ -31,21 +34,24 @@ int		main(void)
 	std::cout << k->getType() << " " << std::endl;
 	k->makeSound();
 
-	Animal*	animals = new Animal[10];
+	Animal *animals[10]; // make a 2d array of Animals
 	for (int i = 0; i < 10; i++)
 	{
 		if (i % 2 == 1)
-			animals[i] = *j;
+			animals[i] = new Cat();
 		else
-			animals[i] = *l;
+			animals[i] = new Dog();
 	}
 	
 	for (int i = 0; i < 10; i++)
 	{
-		animals[i].makeSound();
+		animals[i]->makeSound();
 	}
 
-	delete [] animals;
+	for (int i = 0; i < 10; i++)
+	{
+		delete animals[i];
+	}
 	delete meta;
 	delete j;
 	delete l;
