@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Dog.cpp                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/01/19 15:04:50 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 19:08:13 by nhariman      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niks <niks@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/19 15:04:50 by nhariman          #+#    #+#             */
+/*   Updated: 2022/01/27 17:27:11 by niks             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,19 @@ void		Dog::setSound(std::string sound)
 Brain*		Dog::getBrain()
 {
 	return this->_brain;
+}
+
+
+std::string	Dog::getIdeas(int nb)
+{
+	if (nb < 0 || nb >= 100)
+		return "";
+	return this->_brain->ideas[nb];
+}
+
+void		Dog::setIdeas(int nb, std::string content)
+{
+		if (nb < 0 || nb >= 100)
+			std::cout << "Out of Bounds\n";
+		this->_brain->ideas[nb] = content;
 }

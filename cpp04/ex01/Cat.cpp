@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Cat.cpp                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/01/19 15:04:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 19:17:59 by nhariman      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niks <niks@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/19 15:04:36 by nhariman          #+#    #+#             */
+/*   Updated: 2022/01/27 17:26:07 by niks             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,18 @@ void		Cat::setSound(std::string sound)
 Brain*		Cat::getBrain()
 {
 	return this->_brain;
+}
+
+std::string	Cat::getIdeas(int nb)
+{
+	if (nb < 0 || nb >= 100)
+		return "";
+	return this->_brain->ideas[nb];
+}
+
+void		Cat::setIdeas(int nb, std::string content)
+{
+		if (nb < 0 || nb >= 100)
+			std::cout << "Out of Bounds\n";
+		this->_brain->ideas[nb] = content;
 }

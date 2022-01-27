@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Dog.hpp                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/01/19 14:32:34 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 19:07:49 by nhariman      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niks <niks@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/19 14:32:34 by nhariman          #+#    #+#             */
+/*   Updated: 2022/01/27 17:26:45 by niks             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class Dog : public Animal
 		std::string	getSound() const;
 		void		setSound(std::string sound);
 		Brain*		getBrain();
+		std::string	getIdeas(int nb);
+		void		setIdeas(int nb, std::string content);
 };
 
 #endif

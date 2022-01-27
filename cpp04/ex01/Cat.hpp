@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Cat.hpp                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/01/19 14:32:22 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 19:07:14 by nhariman      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niks <niks@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/19 14:32:22 by nhariman          #+#    #+#             */
+/*   Updated: 2022/01/27 17:22:47 by niks             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class Cat : public Animal
 		std::string	getSound() const;
 		void		setSound(std::string sound);
 		Brain*		getBrain();
+		std::string	getIdeas(int nb);
+		void		setIdeas(int nb, std::string content);
 };
 
 #endif

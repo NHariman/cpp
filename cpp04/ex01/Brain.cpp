@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Brain.cpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/01/19 17:23:26 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/26 18:51:57 by nhariman      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niks <niks@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/19 17:23:26 by nhariman          #+#    #+#             */
+/*   Updated: 2022/01/27 17:19:40 by niks             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,4 @@ Brain::Brain(Brain& obj)
 Brain::~Brain()
 {
 	std::cout << "Brain has been deleted" << std::endl;
-}
-
-std::string* Brain::getIdeas()
-{
-	return this->ideas;
 }
