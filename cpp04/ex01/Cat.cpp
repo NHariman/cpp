@@ -6,7 +6,7 @@
 /*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/09 17:40:24 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/09 19:23:27 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ Cat::~Cat()
 }
 
 
-Cat::Cat(Cat& obj)
+Cat::Cat(const Cat& obj)
 {
-	*this = obj;
+	this->_brain = new Brain(*obj.getBrain());
+	this->_type = obj.getType();
 }
 
 Cat& Cat::operator= (Cat const &cat)
 {
 	std::cout << "Cat Copy constructor called." << std::endl;
-	_type = cat.getType();
-	_brain = new Brain();
-	*_brain = *cat.getBrain();
+	this->_type = cat.getType();
+	this->_brain = new Brain(*cat.getBrain());
 	return (*this);
 }
 

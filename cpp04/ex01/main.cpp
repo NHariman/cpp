@@ -6,7 +6,7 @@
 /*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:24:20 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/09 17:40:46 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/09 19:03:51 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,11 @@ int		main(void)
 	}
 
 	animals[0]->setIdeas(0, "test");
+	animals[0]->getBrain()->ideas[1] = "hello";
 	std::cout << animals[0]->getIdeas(0) << std::endl;
+	std::cout << animals[0]->getIdeas(1) << std::endl;
 	std::cout << animals[0]->getBrain()->ideas[0] << std::endl;
-	animals[2] = animals[0];
+	animals[4] = animals[0];
 	std::cout << animals[2]->getIdeas(0) << std::endl;	
 
 	for (int i = 0; i < 10; i++)

@@ -6,7 +6,7 @@
 /*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:34 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/09 17:39:59 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/09 19:23:28 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Dog : public Animal
 	public:
 		Dog();
 		virtual ~Dog();
-		Dog(Dog& obj);
+		Dog(const Dog& obj);
 		Dog&	operator=(Dog const &dog);
 		void	makeSound() const;
 		Brain*		getBrain() const;

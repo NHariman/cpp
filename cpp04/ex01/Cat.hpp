@@ -6,7 +6,7 @@
 /*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:22 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/09 17:40:04 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/09 19:23:23 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cat : public Animal
 		Brain*		_brain;
 	public:
 		Cat();
-		Cat(Cat& obj);
+		Cat(const Cat& obj);
 		virtual ~Cat();
 		Cat&	operator=(Cat const &cat);
 		void	makeSound() const;

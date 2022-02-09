@@ -6,7 +6,7 @@
 /*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:50 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/09 17:51:22 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/09 19:23:09 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ Dog::~Dog()
 	delete _brain;
 }
 
-Dog::Dog(Dog& obj)
+Dog::Dog(const Dog& obj)
 {
-	*this = obj;
+	_brain = new Brain(*obj.getBrain());
+	_type = obj.getType();
 }
 
 Dog& Dog::operator= (Dog const &dog)
 {
 	std::cout << "Dog Copy constructor called." << std::endl;
-	_brain = new Brain();
-	*_brain = *dog.getBrain();
+	_brain = new Brain(*dog.getBrain());
 	_type = dog.getType();
 	return (*this);
 }
