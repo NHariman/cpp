@@ -6,7 +6,7 @@
 /*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:22 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/08 19:22:33 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/09 17:40:04 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Cat : public Animal
 {
 	private:
-		std::string _sound;
 		Brain*		_brain;
 	public:
 		Cat();
@@ -27,11 +26,9 @@ class Cat : public Animal
 		virtual ~Cat();
 		Cat&	operator=(Cat const &cat);
 		void	makeSound() const;
-		std::string	getSound() const;
-		void		setSound(std::string sound);
-		Brain*		getBrain();
-		std::string	getIdeas(int nb);
-		void		setIdeas(int nb, std::string content);
+		Brain*		getBrain() const;
+		std::string	getIdeas(int nb) const;
+		void		setIdeas(int nb, std::string content) const;
 };
 
 #endif

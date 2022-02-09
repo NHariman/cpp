@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:18 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 16:56:45 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/09 13:41:51 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ANIMAL_HPP
 
 #include <iostream>
+#include "Brain.hpp"
 
 // https://www.geeksforgeeks.org/virtual-function-cpp/
 // A virtual function is a member function which is declared 
@@ -38,6 +39,9 @@ class	Animal
 		Animal();
 		virtual ~Animal();
 		virtual void	makeSound() const;
+		virtual Brain*	getBrain() const = 0;
+		virtual std::string getIdeas(int nb) const = 0;
+		virtual void setIdeas(int nb, std::string content) const = 0;
 		Animal(std::string type);
 		std::string	getType() const;
 };
