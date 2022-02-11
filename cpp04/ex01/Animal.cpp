@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:31:48 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/09 19:24:25 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/11 18:14:44 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,19 @@ Animal::Animal(std::string type) : _type(type)
 
 Animal::~Animal()
 {
-	std::cout << "Animal: " << this->_type << " has died." << std::endl;
+	std::cout << "An Animal has died." << std::endl;
+}
+
+Animal::Animal(const Animal& obj)
+{
+	*this = obj;
+	std::cout << "Animal has been copied over" << std::endl;
+}
+
+Animal&	Animal::operator=(Animal const &obj)
+{
+	_type = obj.getType();
+	return (*this);
 }
 
 void	Animal::makeSound() const

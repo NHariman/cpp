@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:18 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/09 13:41:51 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/11 18:05:58 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ class	Animal
 	public:
 		Animal();
 		virtual ~Animal();
+		Animal(const Animal& obj);
+		Animal& operator=(Animal const &obj);
 		virtual void	makeSound() const;
 		virtual Brain*	getBrain() const = 0;
 		virtual std::string getIdeas(int nb) const = 0;
