@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:18 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 21:49:51 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/11 18:05:58 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ class	Animal
 		Animal();
 		virtual ~Animal();
 		Animal(const Animal& obj);
-		Animal&			operator=(const Animal& obj);
+		Animal& operator=(Animal const &obj);
 		virtual void	makeSound() const;
-		Animal(std::string const type);
-		std::string	getType() const;
 		virtual Brain*	getBrain() const = 0;
+		virtual std::string getIdeas(int nb) const = 0;
+		virtual void setIdeas(int nb, std::string content) const = 0;
+		Animal(std::string type);
+		std::string	getType() const;
 };
 
 #endif

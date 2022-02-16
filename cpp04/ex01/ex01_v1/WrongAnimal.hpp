@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.hpp                                            :+:    :+:            */
+/*   WrongAnimal.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/01/19 14:32:22 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 21:50:25 by nhariman      ########   odam.nl         */
+/*   Created: 2022/01/19 14:37:34 by nhariman      #+#    #+#                 */
+/*   Updated: 2022/01/19 17:10:37 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+// without the use of virtual, the base class makeSound is used
 
-class Cat : public Animal
+#include <iostream>
+
+class	WrongAnimal
 {
-	private:
-		std::string _sound;
-		Brain*		_brain;
+	protected:
+		std::string _type;
+		void	setType(std::string type);
 	public:
-		Cat();
-		virtual ~Cat();
+		WrongAnimal();
+		~WrongAnimal();
 		void	makeSound() const;
-		std::string	getSound() const;
-		void		setSound(std::string sound);
-		Brain*		getBrain() const;
-		Cat(const Cat& obj);
-		Cat&	operator=(const Cat& obj);
-		// it's a const because it has to be used in copy constructor of Brain
+		WrongAnimal(std::string type);
+		std::string	getType() const;
 };
 
 #endif

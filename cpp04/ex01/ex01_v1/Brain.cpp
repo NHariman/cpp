@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Brain.cpp                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
+/*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/02/16 18:22:20 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 18:27:39 by nhariman      ########   odam.nl         */
+/*   Created: 2022/01/19 17:23:26 by nhariman      #+#    #+#                 */
+/*   Updated: 2022/02/11 18:54:47 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 Brain::Brain()
 {
-	std::cout << "Default Brain Constructor has been called." << std::endl;
+	std::cout << "Brain has been initialised" << std::endl;
 }
 
 Brain::Brain(const Brain& obj)
 {
 	*this = obj;
-	std::cout << "Copy constructor has been called." << std::endl;
+	std::cout << "ideas has been copied over" << std::endl;
+}
+
+Brain&	Brain::operator=(Brain const &obj)
+{
+	for (int i = 0; i < 100; i++)
+		ideas[i] = obj.ideas[i];
+	std::cout << "ideas has been copied over" << std::endl;
+	return (*this);
 }
 
 Brain::~Brain()
 {
-	std::cout << "Default Brain destructor has been called." << std::endl;
-}
-
-Brain&	Brain::operator=(const Brain& obj)
-{
-	for (int i = 0; i < 100; i++)
-		ideas[i] = obj.ideas[i];
-	std::cout << "Brain assignation operator overload has been called." << std::endl;
-	return *this;
+	std::cout << "Brain has been deleted" << std::endl;
 }

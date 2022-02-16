@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Brain.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
+/*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/02/16 18:28:30 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 19:17:43 by nhariman      ########   odam.nl         */
+/*   Created: 2022/01/19 17:21:45 by nhariman      #+#    #+#                 */
+/*   Updated: 2022/02/11 18:05:30 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 #include <iostream>
 
-class	Brain
+class Brain
 {
 	public:
 		Brain();
-		~Brain();
 		Brain(const Brain& obj);
-		Brain& operator=(const Brain& obj);
-		std::string ideas[100];
+		Brain&	operator=(Brain const &obj);
+		~Brain();
+		std::string	ideas[100];
 };
 
 #endif

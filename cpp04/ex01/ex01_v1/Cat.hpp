@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Cat.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
+/*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:22 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 21:50:25 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/11 16:35:04 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,16 @@
 class Cat : public Animal
 {
 	private:
-		std::string _sound;
 		Brain*		_brain;
 	public:
 		Cat();
-		virtual ~Cat();
-		void	makeSound() const;
-		std::string	getSound() const;
-		void		setSound(std::string sound);
-		Brain*		getBrain() const;
 		Cat(const Cat& obj);
-		Cat&	operator=(const Cat& obj);
-		// it's a const because it has to be used in copy constructor of Brain
+		virtual ~Cat();
+		Cat&	operator=(Cat const &cat);
+		void	makeSound() const;
+		Brain*		getBrain() const;
+		std::string	getIdeas(int nb) const;
+		void		setIdeas(int nb, std::string content) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 #    By: nhariman <nhariman@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/01/19 14:31:20 by nhariman      #+#    #+#                  #
-#    Updated: 2022/01/19 18:54:39 by nhariman      ########   odam.nl          #
+#    Updated: 2022/02/16 20:00:28 by nhariman      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,9 @@ FLAGS = -Wall -Werror -Wextra -std=c++98
 
 FILES = main.cpp \
 		Animal.cpp \
+		Brain.cpp \
 		Cat.cpp \
-		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
-		Brain.cpp
+		Dog.cpp
 
 OFILES = $(FILES:.cpp=.o)
 

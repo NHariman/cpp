@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Cat.cpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
+/*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 21:50:50 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/11 20:55:35 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,47 +16,52 @@ Cat::Cat()
 {
 	std::cout << "A cat has been created" << std::endl;
 	Animal::setType("Cat");
-	this->_sound = "meow";
-	this->_brain = new Brain();
+	_brain = new Brain();
 }
 
 Cat::~Cat()
 {
-	delete this->_brain;
 	std::cout << "A cat has died" << std::endl;
+	delete _brain;
 }
 
-Cat::Cat(const Cat& obj) : Animal(obj.getType()), _sound(obj.getSound()), _brain(new Brain(*obj.getBrain()))
+
+Cat::Cat(const Cat& obj)
 {
 	*this = obj;
-	std::cout << "Cat Copy constructor has been called" << std::endl;
+	Animal::setType(obj.getType());
 }
 
-Cat&	Cat::operator=(const Cat& obj)
+Cat& Cat::operator= (Cat const &obj)
 {
-	this->_type = obj.getType();
-	this->_sound = obj.getSound();
-	*(this->_brain) = *(obj.getBrain());
-	std::cout << "Cat assignation operator has been called." << std::endl;
+	std::cout << "Cat Copy constructor called." << std::endl;
+	Animal::setType(obj.getType());
+	_brain = new Brain(*obj.getBrain());
+	// for (int i = 0; i < 100; i++)
+	// 	_brain->ideas[i] = obj.getBrain()->ideas[i];
 	return (*this);
 }
 
 void	Cat::makeSound() const
 {
-	std::cout << this->getSound() << std::endl;
-}
-
-std::string	Cat::getSound() const
-{
-	return this->_sound;
-}
-
-void		Cat::setSound(std::string sound)
-{
-	this->_sound = sound;
+	std::cout << "meow" << std::endl;
 }
 
 Brain*		Cat::getBrain() const
 {
 	return this->_brain;
+}
+
+std::string	Cat::getIdeas(int nb) const
+{
+	if (nb < 0 || nb >= 100)
+		return "";
+	return this->_brain->ideas[nb];
+}
+
+void		Cat::setIdeas(int nb, std::string content) const
+{
+		if (nb < 0 || nb >= 100)
+			std::cout << "Out of Bounds\n";
+		this->_brain->ideas[nb] = content;
 }

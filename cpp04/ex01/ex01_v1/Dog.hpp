@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.hpp                                            :+:    :+:            */
+/*   Dog.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
+/*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/01/19 14:32:22 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 21:50:25 by nhariman      ########   odam.nl         */
+/*   Created: 2022/01/19 14:32:34 by nhariman      #+#    #+#                 */
+/*   Updated: 2022/02/11 16:35:07 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal
+class Dog : public Animal
 {
 	private:
-		std::string _sound;
 		Brain*		_brain;
 	public:
-		Cat();
-		virtual ~Cat();
+		Dog();
+		virtual ~Dog();
+		Dog(const Dog& obj);
+		Dog&	operator=(Dog const &dog);
 		void	makeSound() const;
-		std::string	getSound() const;
-		void		setSound(std::string sound);
 		Brain*		getBrain() const;
-		Cat(const Cat& obj);
-		Cat&	operator=(const Cat& obj);
-		// it's a const because it has to be used in copy constructor of Brain
+		std::string	getIdeas(int nb) const;
+		void		setIdeas(int nb, std::string content) const;
 };
 
 #endif

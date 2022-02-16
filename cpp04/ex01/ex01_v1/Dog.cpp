@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Dog.cpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
+/*   By: niks <niks@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:50 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 19:17:22 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/11 20:55:45 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,47 +16,52 @@ Dog::Dog()
 {
 	std::cout << "A Dog has been created" << std::endl;
 	Animal::setType("Dog");
-	this->_sound = "woof";
-	this->_brain = new Brain();
+	_brain = new Brain();
 }
 
 Dog::~Dog()
 {
-	delete this->_brain;
 	std::cout << "A Dog has died" << std::endl;
+	delete _brain;
 }
 
-Dog::Dog(const Dog& obj) : Animal(obj.getType()), _sound(obj.getSound()), _brain(new Brain(*obj.getBrain()))
+Dog::Dog(const Dog& obj)
 {
 	*this = obj;
-	std::cout << "Dog copy constructor has been called" << std::endl;
+	Animal::setType(obj.getType());
 }
 
-Dog&	Dog::operator=(const Dog& obj)
+Dog& Dog::operator= (Dog const &obj)
 {
-	this->_type = obj.getType();
-	this->_sound = obj.getSound();
-	*(this->_brain) = *(obj.getBrain());
-	std::cout << "Dog assignation operator has been called." << std::endl;
-	return *this;
-}
-
-Brain*	Dog::getBrain() const
-{
-	return this->_brain;
+	std::cout << "Dog Copy constructor called." << std::endl;
+	_brain = new Brain(*obj.getBrain());
+	// for (int i = 0; i < 100; i++)
+	// 	_brain->ideas[i] = obj.getBrain()->ideas[i];
+	Animal::setType(obj.getType());
+	return (*this);
 }
 
 void	Dog::makeSound() const
 {
-	std::cout << this->_sound << std::endl;
+	std::cout << "woof" << std::endl;
 }
 
-std::string	Dog::getSound() const
+Brain*		Dog::getBrain() const
 {
-	return this->_sound;
+	return this->_brain;
 }
 
-void		Dog::setSound(std::string sound)
+
+std::string	Dog::getIdeas(int nb) const
 {
-	this->_sound = sound;
+	if (nb < 0 || nb >= 100)
+		return "";
+	return this->_brain->ideas[nb];
+}
+
+void		Dog::setIdeas(int nb, std::string content) const
+{
+		if (nb < 0 || nb >= 100)
+			std::cout << "Out of Bounds\n";
+		this->_brain->ideas[nb] = content;
 }
