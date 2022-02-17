@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Dog.cpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: niks <niks@student.42.fr>                    +#+                     */
+/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:50 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/08 19:18:14 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 16:08:54 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Dog::Dog()
 {
-	std::cout << "A Dog has been created" << std::endl;
+	std::cout << B_BLUE << "A Dog has been created" << B_END << std::endl;
 	Animal::setType("Dog");
 	this->_sound = "woof";
 	this->_brain = new Brain();
@@ -22,24 +22,30 @@ Dog::Dog()
 
 Dog::~Dog()
 {
-	std::cout << "A Dog has died" << std::endl;
 	delete this->_brain;
+	std::cout << B_BLUEB << "A Dog has died" << B_END << std::endl;
 }
 
-Dog::Dog(Dog& obj)
+Dog::Dog(const Dog& obj) : Animal(obj.getType()), _sound(obj.getSound()), _brain(new Brain(*obj.getBrain()))
 {
-	_sound = obj.getSound();
-	_brain = new Brain(*obj.getBrain());
+	*this = obj;
+	std::cout << B_BLUE << "DOG COPY CONSTRUCTOR" << B_END << std::endl;
 }
 
-Dog& Dog::operator= (Dog const &dog)
+Dog&	Dog::operator=(const Dog& obj)
 {
-	std::cout << "Dog Copy constructor called." << std::endl;
-	this->_brain = dog._brain;
-	return (*this);
+	this->_type = obj.getType();
+	this->_sound = obj.getSound();
+	std::cout << B_BLUE << "DOG ASSIGNATION OVERLOAD" << B_END << std::endl;
+	return *this;
 }
 
-void	Dog::makeSound() const
+Brain*	Dog::getBrain() const
+{
+	return this->_brain;
+}
+
+void	Dog::makeSound()
 {
 	std::cout << this->_sound << std::endl;
 }
@@ -52,24 +58,4 @@ std::string	Dog::getSound() const
 void		Dog::setSound(std::string sound)
 {
 	this->_sound = sound;
-}
-
-Brain*		Dog::getBrain()
-{
-	return this->_brain;
-}
-
-
-std::string	Dog::getIdeas(int nb)
-{
-	if (nb < 0 || nb >= 100)
-		return "";
-	return this->_brain->ideas[nb];
-}
-
-void		Dog::setIdeas(int nb, std::string content)
-{
-		if (nb < 0 || nb >= 100)
-			std::cout << "Out of Bounds\n";
-		this->_brain->ideas[nb] = content;
 }

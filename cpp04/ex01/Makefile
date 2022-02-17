@@ -6,13 +6,13 @@
 #    By: nhariman <nhariman@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/01/19 14:31:20 by nhariman      #+#    #+#                  #
-#    Updated: 2022/02/16 20:00:28 by nhariman      ########   odam.nl          #
+#    Updated: 2022/02/17 15:47:11 by nhariman      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 COMPILE = clang++
 
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98 
 
 FILES = main.cpp \
 		Animal.cpp \
@@ -28,6 +28,7 @@ all: $(NAME)
 
 $(NAME): $(OFILES)
 	@$(COMPILE) $(OFILES) -o $@
+
 
 %.o: %.cpp
 	@$(COMPILE) $(FLAGS) -c $< -o $@

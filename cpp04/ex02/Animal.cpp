@@ -6,11 +6,15 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:31:48 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 15:23:15 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 15:56:30 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+
+// pure virtual class:
+/* https://docs.microsoft.com/en-us/cpp/cpp/abstract-classes-cpp?view=msvc-170 */
+/* https://www.geeksforgeeks.org/pure-virtual-functions-and-abstract-classes/ */
 
 Animal::Animal()
 {
@@ -38,11 +42,6 @@ Animal&		Animal::operator=(const Animal& obj)
 Animal::~Animal()
 {
 	std::cout << B_PURPLEB <<  "Animal: " << this->_type << " has died." << B_END << std::endl;
-}
-
-void	Animal::makeSound() const
-{
-	std::cout << "??????" << std::endl;
 }
 
 std::string	Animal::getType() const

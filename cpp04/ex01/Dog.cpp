@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:50 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 19:17:22 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 15:33:35 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Dog::Dog()
 {
-	std::cout << "A Dog has been created" << std::endl;
+	std::cout << B_BLUE << "A Dog has been created" << B_END << std::endl;
 	Animal::setType("Dog");
 	this->_sound = "woof";
 	this->_brain = new Brain();
@@ -23,21 +23,20 @@ Dog::Dog()
 Dog::~Dog()
 {
 	delete this->_brain;
-	std::cout << "A Dog has died" << std::endl;
+	std::cout << B_BLUEB << "A Dog has died" << B_END << std::endl;
 }
 
 Dog::Dog(const Dog& obj) : Animal(obj.getType()), _sound(obj.getSound()), _brain(new Brain(*obj.getBrain()))
 {
 	*this = obj;
-	std::cout << "Dog copy constructor has been called" << std::endl;
+	std::cout << B_BLUE << "DOG COPY CONSTRUCTOR" << B_END << std::endl;
 }
 
 Dog&	Dog::operator=(const Dog& obj)
 {
 	this->_type = obj.getType();
 	this->_sound = obj.getSound();
-	*(this->_brain) = *(obj.getBrain());
-	std::cout << "Dog assignation operator has been called." << std::endl;
+	std::cout << B_BLUE << "DOG ASSIGNATION OVERLOAD" << B_END << std::endl;
 	return *this;
 }
 

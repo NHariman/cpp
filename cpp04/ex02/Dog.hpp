@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Dog.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: niks <niks@student.42.fr>                    +#+                     */
+/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:34 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/08 19:22:48 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 16:11:19 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,13 @@ class Dog : public Animal
 	public:
 		Dog();
 		virtual ~Dog();
-		Dog(Dog& obj);
-		Dog&	operator=(Dog const &dog);
-		void	makeSound() const;
+		Dog(const Dog& obj);
+		Dog&	operator=(const Dog& obj);
+		void	makeSound();
 		std::string	getSound() const;
 		void		setSound(std::string sound);
-		Brain*		getBrain();
-		std::string	getIdeas(int nb);
-		void		setIdeas(int nb, std::string content);
+		Brain*		getBrain() const;
+		// const because it has to be used in the copy constructor of Brain
 };
 
 #endif

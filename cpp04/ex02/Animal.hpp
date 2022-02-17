@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   AAnimal.hpp                                         :+:    :+:            */
+/*   Animal.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:18 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 16:56:45 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 16:03:30 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-#define AANIMAL_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
+#include "Brain.hpp"
+#include "colours.hpp"
 
 // https://www.geeksforgeeks.org/virtual-function-cpp/
 // A virtual function is a member function which is declared 
@@ -29,14 +31,24 @@
 // the function call
 // - use for runtime polymorphism
 
-class	AAnimal
+// by making pure virtual functions the class turns abstract
+// so this was actually just a repeat of ex01
+// but makesound is a pure virtual function now too
+
+class	Animal
 {
 	protected:
 		std::string _type;
 		void	setType(std::string type);
 	public:
-		virtual ~AAnimal();
-		virtual void	makeSound() const = 0; // doing this makes the class an abstract class, removal of constructor to make it not instantiable
+		Animal();
+		virtual ~Animal();
+		Animal(const Animal& obj);
+		Animal&			operator=(const Animal& obj);
+		virtual void	makeSound() = 0;
+		Animal(std::string const type);
+		std::string	getType() const;
+		virtual Brain*	getBrain() const = 0;
 };
 
 #endif

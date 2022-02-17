@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 21:50:50 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 15:31:06 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat()
 {
-	std::cout << "A cat has been created" << std::endl;
+	std::cout << B_GREEN << "A cat has been created" << B_END << std::endl;
 	Animal::setType("Cat");
 	this->_sound = "meow";
 	this->_brain = new Brain();
@@ -23,21 +23,20 @@ Cat::Cat()
 Cat::~Cat()
 {
 	delete this->_brain;
-	std::cout << "A cat has died" << std::endl;
+	std::cout << B_GREENB << "A cat has died" << B_END << std::endl;
 }
 
 Cat::Cat(const Cat& obj) : Animal(obj.getType()), _sound(obj.getSound()), _brain(new Brain(*obj.getBrain()))
 {
 	*this = obj;
-	std::cout << "Cat Copy constructor has been called" << std::endl;
+	std::cout << B_GREEN << "CAT COPY CONSTRUCTOR" << B_END << std::endl;
 }
 
 Cat&	Cat::operator=(const Cat& obj)
 {
 	this->_type = obj.getType();
 	this->_sound = obj.getSound();
-	*(this->_brain) = *(obj.getBrain());
-	std::cout << "Cat assignation operator has been called." << std::endl;
+	std::cout << B_GREEN << "CAT ASSIGNATION OVERLOAD" << B_END << std::endl;
 	return (*this);
 }
 

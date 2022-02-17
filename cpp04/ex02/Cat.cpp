@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Cat.cpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: niks <niks@student.42.fr>                    +#+                     */
+/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/08 18:55:50 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 16:08:44 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat()
 {
-	std::cout << "A cat has been created" << std::endl;
+	std::cout << B_GREEN << "A cat has been created" << B_END << std::endl;
 	Animal::setType("Cat");
 	this->_sound = "meow";
 	this->_brain = new Brain();
@@ -22,25 +22,25 @@ Cat::Cat()
 
 Cat::~Cat()
 {
-	std::cout << "A cat has died" << std::endl;
 	delete this->_brain;
+	std::cout << B_GREENB << "A cat has died" << B_END << std::endl;
 }
 
-
-Cat::Cat(Cat& obj)
+Cat::Cat(const Cat& obj) : Animal(obj.getType()), _sound(obj.getSound()), _brain(new Brain(*obj.getBrain()))
 {
-	_sound = obj.getSound();
-	_brain = new Brain(*obj.getBrain());
+	*this = obj;
+	std::cout << B_GREEN << "CAT COPY CONSTRUCTOR" << B_END << std::endl;
 }
 
-Cat& Cat::operator= (Cat const &cat)
+Cat&	Cat::operator=(const Cat& obj)
 {
-	std::cout << "Cat Copy constructor called." << std::endl;
-	this->_brain = cat._brain;
+	this->_type = obj.getType();
+	this->_sound = obj.getSound();
+	std::cout << B_GREEN << "CAT ASSIGNATION OVERLOAD" << B_END << std::endl;
 	return (*this);
 }
 
-void	Cat::makeSound() const
+void	Cat::makeSound()
 {
 	std::cout << this->getSound() << std::endl;
 }
@@ -55,21 +55,7 @@ void		Cat::setSound(std::string sound)
 	this->_sound = sound;
 }
 
-Brain*		Cat::getBrain()
+Brain*		Cat::getBrain() const
 {
 	return this->_brain;
-}
-
-std::string	Cat::getIdeas(int nb)
-{
-	if (nb < 0 || nb >= 100)
-		return "";
-	return this->_brain->ideas[nb];
-}
-
-void		Cat::setIdeas(int nb, std::string content)
-{
-		if (nb < 0 || nb >= 100)
-			std::cout << "Out of Bounds\n";
-		this->_brain->ideas[nb] = content;
 }

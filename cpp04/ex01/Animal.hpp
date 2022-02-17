@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:18 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 21:49:51 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 15:21:01 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include "Brain.hpp"
+#include "colours.hpp"
 
 // https://www.geeksforgeeks.org/virtual-function-cpp/
 // A virtual function is a member function which is declared 
