@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:24:20 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 15:47:31 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 20:34:36 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,16 @@ int		main(void)
 	std::cout << "memory address comparing" << std::endl;
 	std::cout << "Kitty ideas[0] on address: "	<< &kitty.getBrain()->ideas[0] << std::endl;
 	std::cout << "copycat ideas[0] on address: " << &copycat.getBrain()->ideas[0] << std::endl;
+
+	Cat	cpy;
+	cpy = kitty;
+	std::cout << "cpy is firstly thinking (ideas[0]) about: " << cpy.getBrain()->ideas[0] << std::endl;
+	std::cout << "cpy is secondly thinking (ideas[1]) about: " << cpy.getBrain()->ideas[1] << std::endl;
+	std::cout << "cpy is thirdly thinking (ideas[2]) about: " << cpy.getBrain()->ideas[2] << std::endl;
+
+	std::cout << "memory address comparing" << std::endl;
+	std::cout << "Kitty ideas[0] on address: "	<< &kitty.getBrain()->ideas[0] << std::endl;
+	std::cout << "cpy ideas[0] on address: " << &cpy.getBrain()->ideas[0] << std::endl;
 
 	std::cout << "=====DOG=====" << std::endl;
 	Dog	puppy = Dog();

@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:50 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 16:08:54 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 20:38:54 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ Dog&	Dog::operator=(const Dog& obj)
 {
 	this->_type = obj.getType();
 	this->_sound = obj.getSound();
+	*(this->_brain) = *(obj.getBrain());
 	std::cout << B_BLUE << "DOG ASSIGNATION OVERLOAD" << B_END << std::endl;
 	return *this;
 }

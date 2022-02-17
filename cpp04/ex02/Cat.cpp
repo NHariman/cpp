@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 16:08:44 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 20:38:47 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ Cat&	Cat::operator=(const Cat& obj)
 {
 	this->_type = obj.getType();
 	this->_sound = obj.getSound();
+	*(this->_brain) = *(obj.getBrain());
 	std::cout << B_GREEN << "CAT ASSIGNATION OVERLOAD" << B_END << std::endl;
 	return (*this);
 }

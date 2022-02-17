@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/08 21:43:56 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/08 21:44:11 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/17 21:07:44 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ class Ice : public AMateria
 		~Ice();
 		AMateria* clone() const;
 		void use(ICharacter& target);
-}
+};
 
 #endif
