@@ -6,12 +6,11 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/08 20:25:46 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 21:43:50 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/23 22:03:54 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
-#include "ICharacter.hpp"
 #include "colours.hpp"
 
 AMateria::AMateria(std::string const &type) : _type(type)
@@ -24,7 +23,7 @@ AMateria::AMateria(const AMateria& obj) : _type(obj.getType())
 	*this = obj;
 }
 
-AMateria&	operator=(const AMateria& obj)
+AMateria&	AMateria::operator=(const AMateria& obj)
 {
 	this->_type = obj.getType();
 	return *this;

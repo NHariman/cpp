@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 17:47:45 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 17:54:26 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/23 22:02:30 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #define ICHARACTER_HPP
 
 #include <iostream>
+
+// circular header problem: https://stackoverflow.com/questions/4757565/what-are-forward-declarations-in-c
+
+class AMateria;
 
 class ICharacter
 {

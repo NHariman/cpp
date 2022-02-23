@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/08 20:25:48 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 21:40:45 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/23 22:21:32 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 #define AMATERIA_HPP
 
 #include <iostream>
+
 #include "ICharacter.hpp"
 
-class AMateria{
-	private:
-		AMateria();
+class AMateria
+{
 	protected:
 		std::string _type;
-		AMateria(std::string const &type);
 	public:
+		AMateria();
+		AMateria(std::string const &type);
 		AMateria(const AMateria& obj);
 		virtual ~AMateria();
 		std::string const &getType() const; // returns materia type

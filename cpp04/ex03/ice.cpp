@@ -6,12 +6,12 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/08 21:59:11 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 21:45:03 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/23 21:52:07 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ice.hpp"
-#include "colour.hpp"
+#include "colours.hpp"
 
 Ice::Ice()
 {

@@ -6,12 +6,12 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/08 21:44:35 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 21:44:45 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/23 21:52:01 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cure.hpp"
-#include "colour.hpp"
+#include "colours.hpp"
 
 Cure::Cure()
 {
