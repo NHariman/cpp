@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/08 20:25:48 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/23 22:21:32 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/24 20:58:05 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class AMateria
 		AMateria(const AMateria& obj);
 		virtual ~AMateria();
 		std::string const &getType() const; // returns materia type
+		std::string hello();
+		bool	empty(void) const;
 		AMateria& operator=(const AMateria& obj);
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
