@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/23 19:02:05 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/24 19:33:09 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/25 21:19:39 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int		main(void)
 	AMateria*	tmp;
 	std::cout << "===========> tmp = src->createMateria(\"ice\");" << std::endl;
 	tmp = src->createMateria("ice");
-	std::cout << "===========> me->equip(tmp);" << std::endl;
+	std::cout << "===========> me->equip(tmp, ice);" << std::endl;
 	me->equip(tmp);
 	std::cout << "===========> tmp = src->createMateria(\"cure\");" << std::endl;
 	tmp = src->createMateria("cure");
-	std::cout << "===========> me->equip(tmp);" << std::endl;
+	std::cout << "===========> me->equip(tmp, cure);" << std::endl;
 	me->equip(tmp);
 
 	std::cout << "===========> ICharacter*	bob = new Character(\"bob\");" << std::endl;
@@ -45,6 +45,13 @@ int		main(void)
 	me->use(0, *bob);
 	std::cout << "===========> me->use(1, *bob);" << std::endl;
 	me->use(1, *bob);
+
+	std::cout << "===========> Character	aram = Character(\"Aram\");" << std::endl;
+	Character	aram = Character("Aram");
+	std::cout << "===========> aram->equip(tmp);" << std::endl;
+	aram.equip(tmp);
+	std::cout << "===========> Character	aramclone = Character(aram);" << std::endl;
+	Character	aramClone = Character(aram);
 
 	std::cout << "===========> deletes" << std::endl;
 	delete bob;

@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 17:54:07 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/24 18:55:30 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/25 21:08:38 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ class Character : public ICharacter
 	private:
 		Character();
 		std::string	_name;
+		int			_inv_id[4];
 		AMateria	*inventory[4];
-	protected:
-		AMateria	*getItem(int i) const;
 	public:
+		int		getInvId(int i) const;
+		AMateria	*getItem(int i) const;
 		Character(std::string name);
 		Character(const Character& obj);
 		Character& operator=(const Character& obj);

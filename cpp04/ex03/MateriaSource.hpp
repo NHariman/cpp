@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/23 15:20:01 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/24 21:58:33 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/02/25 17:29:38 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 
 class	MateriaSource : public IMateriaSource
 {
-	public:
+	private:
+		int			_id[4];
 		AMateria*	index[4];
+	public:
 		MateriaSource();
 		MateriaSource(const MateriaSource &obj);
 		MateriaSource&	operator=(const MateriaSource &obj);
