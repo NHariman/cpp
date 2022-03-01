@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 17:52:56 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/25 21:36:02 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/01 21:53:40 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ Character::Character(const Character& obj) : _name(obj.getName())
 	for (int i = 0; i < 4; i++)
 	{
 		this->_inv_id[i] = obj.getInvId(i);
-		std::cout << obj.getInvId(i) << std::endl;
 		if(obj.getInvId(i) == 1)
 		{
 			type = obj.getItem(i)->getType();
@@ -87,7 +86,9 @@ int		Character::getInvId(int i) const
 
 AMateria	*Character::getItem(int i) const
 {
-	return this->inventory[i];
+	if (*this->_inv_id == 1)
+		return this->inventory[i];
+	return NULL;
 }
 
 void	Character::equip(AMateria *m)
@@ -110,16 +111,19 @@ void	Character::equip(AMateria *m)
 
 void	Character::use(int idx, ICharacter& target)
 {
-	this->inventory[idx]->use(target);
+	if (this->_inv_id[idx] == 1)
+		this->inventory[idx]->use(target);
+	else
+		std::cout << "This slot is empty" << std::endl;
 }
 
 void	Character::unequip(int idx)
 {
-	std::cout << B_YELLOW << "materia has been unequipped!" << B_END << std::endl;
-	if (this->inventory[idx])
+	if (this->_inv_id[idx] == 1 && this->inventory[idx])
 	{
 		this->_inv_id[idx] = 0;
 		this->inventory[idx] = NULL;
+		std::cout << B_YELLOW << "materia has been unequipped!" << B_END << std::endl;
 	}
 }
 

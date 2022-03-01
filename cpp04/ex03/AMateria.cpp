@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/08 20:25:46 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/24 22:04:52 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/01 21:47:03 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,13 @@ std::string const &AMateria::getType() const
 	return this->_type;
 }
 
-bool				AMateria::empty(void) const
-{
-	std::cout << B_RED << "In AMateria Empty" << B_END << std::endl;
-	if (this->_type.empty())
-	{
-		std::cout << B_RED << "this bitch empty" << B_END << std::endl;
-		return true;
-	}
-	std::cout << B_RED << "YEET" << B_END << std::endl;
-	return false;
-}
-
 void			AMateria::use(ICharacter& target)
 {
 	std::cout << B_YELLOW << "From AMateria::use()" << std::endl;
 	if (this->getType().compare("cure"))
-		std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+		std::cout << "*AMateria: heals " << target.getName() << "'s wounds *" << std::endl;
 	else if (this->getType().compare("ice"))
-		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+		std::cout << "*AMateria: shoots an ice bolt at " << target.getName() << " *" << std::endl;
 	else
 		std::cout << this->getType() << " was used on " << target.getName() << std::endl;
 	std::cout << B_END;
