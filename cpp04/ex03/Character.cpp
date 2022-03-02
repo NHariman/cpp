@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/17 17:52:56 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/01 21:53:40 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/02 13:46:36 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inv_id[i] == 1)
+		if (this->_inv_id[i] == 1 && this->inventory[i])
 			delete this->inventory[i];
 	}
 	std::cout << B_YELLOW << this->getName() << " has died." << B_END << std::endl;
@@ -122,7 +122,7 @@ void	Character::unequip(int idx)
 	if (this->_inv_id[idx] == 1 && this->inventory[idx])
 	{
 		this->_inv_id[idx] = 0;
-		this->inventory[idx] = NULL;
+		delete this->inventory[idx];
 		std::cout << B_YELLOW << "materia has been unequipped!" << B_END << std::endl;
 	}
 }

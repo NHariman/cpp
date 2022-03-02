@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/23 19:02:05 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/01 21:53:43 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/02 13:35:19 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,16 @@ int		main(void)
 	std::cout << "===========> unequiping and trying to use it after." << std::endl;
 	aram.unequip(0);
 	aram.use(0, *bob);
+	aram.equip(tmp);
+	aram.use(0, *bob);
+	aramClone.unequip(0);
+	aramClone.use(0, *bob);
+	aramClone.equip(tmp);
+	aramClone.use(0, *bob);
 	std::cout << "===========> deletes" << std::endl;
 	delete bob;
 	delete me;
 	delete src;
+	while(1){;}
 	return 0;
 }
