@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 13:52:13 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/02 21:46:45 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/03 17:01:32 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <cstdlib>
 #include <stdexcept>
 
-class	Bureaucrat
+class	Bureaucrat : public std::exception
 {
 	private:
 		Bureaucrat();
