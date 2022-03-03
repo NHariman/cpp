@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 13:52:11 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/03 16:56:14 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/03 17:46:50 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,18 @@ Bureaucrat::Bureaucrat()
 
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name)
 {
-	try 
-	{
-		if (grade < 1)
-			throw GradeTooHighException();
-		else if (grade > 150)
-			throw GradeTooLowException();
-		else
-			_grade = grade;
-	}
-	catch(std::exception& e)
+	if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
+	else
+		_grade = grade;
 	std::cout << "Bureaucrat: " << name << " has been created" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat: " << name << " has been destroyed" << std::endl;
+	std::cout << "Bureaucrat: " << this->_name << " has been destroyed" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& obj)
