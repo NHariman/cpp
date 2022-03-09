@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/16 19:50:18 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/12/16 20:14:53 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/09 19:55:07 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,15 @@ int		main(void)
 	bob.takeDamage(10);
 	std::cout << B_GREEN << "We will to repair bob" << B_WHITE << std::endl;
 	bob.beRepaired(10);
+	std::cout << B_GREEN << "We will now command bob to attack, despite it being dead already." << B_WHITE << std::endl;
+	bob.attack("guy");
 	std::cout << B_GREEN << "Bob has gone to a better place... permanently." << B_WHITE << std::endl;
 
+	std::cout << B_RED << "We will now make steve lose all its energy points." << B_END << std::endl;
+	for (int i = 0; i < 10; i++)
+		steve.attack("some Rando");
+	std::cout << B_RED << "Steve cannot recover now either." << B_END << std::endl;	
+	steve.beRepaired(10);
 	std::cout << "THE END" << std::endl;
 	return 0;
 }

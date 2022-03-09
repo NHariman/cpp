@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/16 17:28:44 by nhariman      #+#    #+#                 */
-/*   Updated: 2021/12/16 20:02:12 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/09 19:50:21 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	ClapTrap
 		std::string		_name;
 		unsigned int	_hp; // hit points
 		unsigned int	_ep; // energy points
-		unsigned int	_dmg; // attack damage
+		unsigned int	_atk; // attack damage
 	public:
 		ClapTrap(std::string name);
 		~ClapTrap();
