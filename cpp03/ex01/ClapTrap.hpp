@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/16 17:28:44 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/17 15:48:45 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/09 20:21:44 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,28 @@ class	ClapTrap
 {
 	private:
 		std::string		_name;
+		unsigned int	_ogHp; // original hp
+		unsigned int	_ogEp; // original ep
 		unsigned int	_hp; // hit points
 		unsigned int	_ep; // energy points
-		unsigned int	_dmg; // attack damage
+		unsigned int	_atk; // attack damage
 	protected:
 		ClapTrap();
+		void		setOgHp(unsigned int hp);
+		void		setOgEp(unsigned int ep);
 		void		setHp(unsigned int hp);
 		void		setEp(unsigned int ep);
-		void		setDmg(unsigned int dmg);
+		void		setAtk(unsigned int atk);
 	public:
 		ClapTrap(std::string name);
 		~ClapTrap();
 		void		setName(std::string name);
 		std::string	getName();
+		unsigned int	getOgHp();
+		unsigned int	getOgEp();
 		unsigned int	getHp();
 		unsigned int	getEp();
-		unsigned int	getDmg();
+		unsigned int	getAtk();
 		void		getStats(void);
 		void		attack(std::string const &target);
 		void		takeDamage(unsigned int amount);

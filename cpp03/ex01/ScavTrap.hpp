@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 11:43:32 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/17 15:15:25 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/09 20:05:50 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ScavTrap : public ClapTrap
 	public:
 		ScavTrap(std::string name);
 		~ScavTrap();
+		void	attack(std::string const &target);
 		void	guardGate();
 };
 
