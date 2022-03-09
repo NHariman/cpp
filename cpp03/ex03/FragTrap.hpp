@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 15:26:03 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 14:01:39 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/09 20:51:27 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
-
-// the inheritance of both FragTrap and ScavTrap have been changed
-// to virtual public
-// in order to avoid the "diamond problem"
-// https://www.geeksforgeeks.org/virtual-base-class-in-c/
-
 
 class FragTrap : virtual public ClapTrap
 {

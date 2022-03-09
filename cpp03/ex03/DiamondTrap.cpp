@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 15:57:47 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 12:47:30 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/09 20:56:29 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 DiamondTrap::DiamondTrap()
 {
 	std::cout << "A nameless DiamondTrap has been created." << std::endl;
+	FragTrap::setOgHp(FragTrap::getOgHp());
+	ScavTrap::setOgEp(ScavTrap::getOgEp());
 	FragTrap::setHp(FragTrap::getHp());
 	ScavTrap::setEp(ScavTrap::getEp());
-	FragTrap::setDmg(FragTrap::getDmg());
+	FragTrap::setAtk(FragTrap::getAtk());
 }
 
 void	DiamondTrap::setName(std::string name)
@@ -28,9 +30,11 @@ void	DiamondTrap::setName(std::string name)
 DiamondTrap::DiamondTrap(std::string name) : _name(name)
 {
 	ClapTrap::setName(name + "_clap_name");
+	FragTrap::setOgHp(FragTrap::getOgHp());
+	ScavTrap::setOgEp(ScavTrap::getOgEp());
 	FragTrap::setHp(FragTrap::getHp());
 	ScavTrap::setEp(ScavTrap::getEp());
-	FragTrap::setDmg(FragTrap::getDmg());
+	FragTrap::setAtk(FragTrap::getAtk());
 	std::cout << "DiamondTrap " << _name << " ClapTrap name: " << ClapTrap::getName() << " has been created." << std::endl;
 
 }

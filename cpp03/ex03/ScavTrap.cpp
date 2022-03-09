@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 11:58:55 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 12:21:11 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/09 20:43:48 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,43 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "A nameless ScavTrap has been created." << std::endl;
 	this->setHp(100);
+	this->setOgHp(100);
 	this->setEp(50);
-	this->setDmg(20);
+	this->setOgEp(50);
+	this->setAtk(20);
 }
 
 ScavTrap::ScavTrap(std::string name)
 {
 	this->setName(name);
 	this->setHp(100);
+	this->setOgHp(100);
 	this->setEp(50);
-	this->setDmg(20);
+	this->setOgEp(50);
+	this->setAtk(20);
 	std::cout << "ScavTrap " << this->getName() << " has been created." << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap " << this->getName() << " has been destroyed." << std::endl;
+}
+
+void		ScavTrap::attack(std::string const &target)
+{
+	if (this->getHp() == 0)
+	{
+		std::cout << "ScavTrap " << this->getName() << " is too dead to attack right now." << std::endl;
+		return ;
+	}
+	if (this->getEp() < 1)
+	{
+		std::cout << "ScavTrap " << this->getName() << " does not have enough energy points to attack." << std::endl;
+		return ;
+	}
+	this->setEp(this->getEp() - 1);
+	std::cout << "ScavTrap " << this->getName() << " attacked " << target << ", causing " << this->getAtk() << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate()
