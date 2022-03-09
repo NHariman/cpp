@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/16 19:58:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/09 19:55:31 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/09 20:02:36 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ unsigned int	ClapTrap::getEp()
 	return this->_ep;
 }
 
-unsigned int	ClapTrap::getDmg()
+unsigned int	ClapTrap::getatk()
 {
 	return this->_atk;
 }

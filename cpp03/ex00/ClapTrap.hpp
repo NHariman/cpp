@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/16 17:28:44 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/09 19:50:21 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/09 20:02:36 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class	ClapTrap
 		std::string	getName();
 		unsigned int	getHp();
 		unsigned int	getEp();
-		unsigned int	getDmg();
+		unsigned int	getatk();
 		void		attack(std::string const &target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
