@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/16 19:58:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/09 20:23:18 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/09 20:44:12 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,14 +107,14 @@ void		ClapTrap::getStats(void)
 
 void		ClapTrap::attack(std::string const &target)
 {
+	if (this->_hp == 0)
+	{
+		std::cout << "ClapTrap " << this->_name << " is too dead to attack right now." << std::endl;
+		return ;
+	}
 	if (this->_ep < 1)
 	{
 		std::cout << "ClapTrap " << this->_name << " does not have enough energy points to attack." << std::endl;
-		return ;
-	}
-	else if (this->_hp == 0)
-	{
-		std::cout << "ClapTrap " << this->_name << " is too dead to attack right now." << std::endl;
 		return ;
 	}
 	this->_ep--;

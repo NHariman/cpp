@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 11:58:55 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/09 20:21:51 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/09 20:43:48 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ ScavTrap::~ScavTrap()
 
 void		ScavTrap::attack(std::string const &target)
 {
+	if (this->getHp() == 0)
+	{
+		std::cout << "ScavTrap " << this->getName() << " is too dead to attack right now." << std::endl;
+		return ;
+	}
 	if (this->getEp() < 1)
 	{
 		std::cout << "ScavTrap " << this->getName() << " does not have enough energy points to attack." << std::endl;
-		return ;
-	}
-	else if (this->getHp() == 0)
-	{
-		std::cout << "ScavTrap " << this->getName() << " is too dead to attack right now." << std::endl;
 		return ;
 	}
 	this->setEp(this->getEp() - 1);
