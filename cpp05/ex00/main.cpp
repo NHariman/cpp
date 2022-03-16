@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 13:52:15 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/16 20:57:08 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/16 22:08:54 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int main()
 	std::cout << B_BLUE << "Also make some pointers, tmp and ptr: (Nothing will show up)" << B_END << std::endl;
 	Bureaucrat	*tmp;
 	Bureaucrat	*ptr;
-	//Bureaucrat	cannot;
-
+	//Bureaucrat	cannot; // cannot instantiate an empty bureaucrat.
 
 	std::cout << B_BLUE << "Assign tmp to the address of Bureaucrat test" << B_END << std::endl;
 	tmp = &test;
@@ -60,18 +59,22 @@ int main()
 	std::cout << B_RED <<"After incrementing: " << B_END << obj << std::endl;
 
 	std::cout << B_YELLOWB << "\ndecrementing tests" << B_END << std::endl;
-	std::cout << B_YELLOWB << "decrement obj-- (the value should higher)" << B_END << std::endl;
-	std::cout << B_YELLOWB <<"before decrementing: " << B_END << obj << std::endl;
-	obj--;
-	std::cout << B_YELLOWB <<"after decrementing: " << B_END << obj << std::endl;
-	std::cout << B_YELLOWB << "decrement --obj (the value should higher)" << B_END << std::endl;
-	std::cout << B_YELLOWB <<"before decrementing: " << B_END << obj << std::endl;
-	--obj;
-	std::cout << B_YELLOWB <<"after decrementing: " << B_END << obj << std::endl;
-	std::cout << B_YELLOWB << "decrement obj with decGrade() (the value should higher)" << B_END << std::endl;
-	std::cout << B_YELLOWB <<"before decrementing: " << B_END << obj << std::endl;
+	std::cout << B_YELLOW << "decrement obj-- (the value should higher)" << B_END << std::endl;
+	std::cout << B_YELLOW <<"before decrementing: " << B_END << obj << std::endl;
+	std::cout << B_YELLOW << "The value should be the same as before decrementing when printing the obj-- part and give a tmp bureaucrat" << B_END << std::endl;
+	std::cout << obj-- << std::endl;
+	std::cout << B_YELLOW <<"after decrementing: " << B_END << obj << std::endl;
+	std::cout << B_YELLOW << "decrement --obj (the value should higher)" << B_END << std::endl;
+	std::cout << B_YELLOW << "value when printing --obj should be the new value" << B_END << std::endl;
+	std::cout << B_YELLOW <<"Before incrementing: " << B_END << obj << std::endl;
+	std::cout << ++obj << std::endl;
+	std::cout << B_YELLOW <<"after decrementing: " << B_END << obj << std::endl;
+	std::cout << B_YELLOW << "decrement obj with decGrade() (the value should higher)" << B_END << std::endl;
+	std::cout << B_YELLOW <<"before decrementing: " << B_END << obj << std::endl;
 	obj.decGrade();
-	std::cout << B_YELLOWB <<"after decrementing: " << B_END << obj << std::endl;
+	std::cout << B_YELLOW <<"after decrementing: " << B_END << obj << std::endl;
+
+	std::cout << B_PURPLEB << "\nException throwing tests" << B_END << std::endl;
 
 	return (0);
 }
