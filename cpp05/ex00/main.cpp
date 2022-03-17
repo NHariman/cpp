@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 13:52:15 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/16 22:08:54 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/17 20:49:27 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ int main()
 	std::cout << B_BLUE << "Show that obj and test now have the same grade:" << B_END << std::endl;
 	std::cout << obj << std::endl;
 	std::cout << test << std::endl;
+	std::cout << B_BLUE << "Show that getName and getGrade work:" << B_END << std::endl;
+	std::cout << "obj name: " << obj.getName() << std::endl;
+	std::cout << "obj grade: " << obj.getGrade() << std::endl;
 	delete ptr;
 	std::cout << B_REDB << "\nIncrementing tests" << B_END << std::endl;
 	std::cout << B_RED << "Increment obj++ (the value should lower at the end)" << B_END << std::endl;
@@ -75,6 +78,103 @@ int main()
 	std::cout << B_YELLOW <<"after decrementing: " << B_END << obj << std::endl;
 
 	std::cout << B_PURPLEB << "\nException throwing tests" << B_END << std::endl;
-
+	std::cout << B_PURPLE << "Throwing exception for invalid initialisation, too high grade" << B_END << std::endl;
+	try
+	{
+		Bureaucrat fail = Bureaucrat("fail", 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << B_PURPLE << "Throwing exception for invalid initialisation, too low grade" << B_END << std::endl;
+	try
+	{
+		Bureaucrat fail = Bureaucrat("fail", 151);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << B_PURPLE << "Good initialisation but setGrade too high" << B_END << std::endl;
+	try
+	{
+		Bureaucrat fail = Bureaucrat("fail", 15);
+		fail.setGrade(0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << B_PURPLE << "Good initialisation but setGrade too low" << B_END << std::endl;
+	try
+	{
+		Bureaucrat fail = Bureaucrat("fail", 15);
+		fail.setGrade(151);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << B_PURPLE << "Incrementing too high: i++" << B_END << std::endl;
+	try
+	{
+		Bureaucrat fail = Bureaucrat("fail", 1);
+		fail++;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}		
+	std::cout << B_PURPLE << "Incrementing too high: ++i" << B_END << std::endl;
+	try
+	{
+		Bureaucrat fail = Bureaucrat("fail", 1);
+		++fail;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << B_PURPLE << "Incrementing too high: incGrade" << B_END << std::endl;
+	try
+	{
+		Bureaucrat fail = Bureaucrat("fail", 1);
+		fail.incGrade();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << B_PURPLE << "Incrementing too high: i--" << B_END << std::endl;
+	try
+	{
+		Bureaucrat fail = Bureaucrat("fail", 1);
+		fail--;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}		
+	std::cout << B_PURPLE << "Incrementing too low: --i" << B_END << std::endl;
+	try
+	{
+		Bureaucrat fail = Bureaucrat("fail", 1);
+		--fail;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << B_PURPLE << "Incrementing too low: decGrade" << B_END << std::endl;
+	try
+	{
+		Bureaucrat fail = Bureaucrat("fail", 1);
+		fail.decGrade();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}	
 	return (0);
 }

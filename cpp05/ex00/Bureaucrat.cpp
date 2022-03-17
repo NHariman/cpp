@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 13:52:11 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/16 20:53:47 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/17 20:02:12 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,21 +69,11 @@ void	Bureaucrat::setGrade(unsigned int grade)
 		this->_grade = grade;
 }
 
-std::string			Bureaucrat::GradeTooHighException()
-{
-	return "Grade is too high\n";
-}
-
-std::string			Bureaucrat::GradeTooLowException()
-{
-	return "Grade is too low\n";
-}
-
 void		Bureaucrat::incGrade()
 {
-	if (this->_grade < 1)
+	if (this->_grade - 1 < 1)
 		throw GradeTooHighException();
-	else if (this->_grade > 150)
+	else if (this->_grade - 1 > 150)
 		throw GradeTooLowException();
 	else
 		this->_grade--;
@@ -91,9 +81,9 @@ void		Bureaucrat::incGrade()
 
 void		Bureaucrat::decGrade()
 {
-	if (this->_grade < 1)
+	if (this->_grade + 1 < 1)
 		throw GradeTooHighException();
-	else if (this->_grade > 150)
+	else if (this->_grade + 1 > 150)
 		throw GradeTooLowException();
 	else
 		this->_grade++;
@@ -104,9 +94,9 @@ Bureaucrat	Bureaucrat::operator++ (int) // post-increment
 	Bureaucrat tmp;
 
 	tmp._grade = this->_grade;
-	if (this->_grade < 1)
+	if (this->_grade - 1 < 1)
 		throw GradeTooHighException();
-	else if (this->_grade > 150)
+	else if (this->_grade - 1 > 150)
 		throw GradeTooLowException();
 	else
 		this->_grade--;
@@ -115,9 +105,9 @@ Bureaucrat	Bureaucrat::operator++ (int) // post-increment
 
 Bureaucrat&	Bureaucrat::operator++ () // pre-increment
 {
-	if (this->_grade < 1)
+	if (this->_grade - 1 < 1)
 		throw GradeTooHighException();
-	else if (this->_grade > 150)
+	else if (this->_grade - 1 > 150)
 		throw GradeTooLowException();
 	else
 		this->_grade--;
@@ -129,9 +119,9 @@ Bureaucrat	Bureaucrat::operator-- (int) // post-increment
 	Bureaucrat tmp;
 
 	tmp._grade = this->_grade;
-	if (this->_grade < 1)
+	if (this->_grade + 1 < 1)
 		throw GradeTooHighException();
-	else if (this->_grade > 150)
+	else if (this->_grade + 1 > 150)
 		throw GradeTooLowException();
 	else
 		this->_grade++;
@@ -140,9 +130,9 @@ Bureaucrat	Bureaucrat::operator-- (int) // post-increment
 
 Bureaucrat&	Bureaucrat::operator-- () // pre-increment
 {
-	if (this->_grade < 1)
+	if (this->_grade + 1 < 1)
 		throw GradeTooHighException();
-	else if (this->_grade > 150)
+	else if (this->_grade + 1 > 150)
 		throw GradeTooLowException();
 	else
 		this->_grade++;

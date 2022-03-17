@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 13:52:13 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/16 20:27:58 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/17 20:02:40 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class	Bureaucrat
 		Bureaucrat(std::string name, unsigned int grade);
 		Bureaucrat(std::string name);
 		~Bureaucrat();
-		std::string			GradeTooHighException();
-		std::string			GradeTooLowException();
+		// std::string			GradeTooHighException();
+		// std::string			GradeTooLowException();
 		Bureaucrat(const Bureaucrat& obj);
 		Bureaucrat& operator=(const Bureaucrat& obj);
 		std::string		getName() const;
@@ -44,16 +44,20 @@ class	Bureaucrat
 		Bureaucrat	operator-- (int); // post-increment
 		Bureaucrat&	operator-- (); // pre-increment
 
-		// class GradeTooLowException : public std::runtime_error
-		// {
-		// 	public:
-		// 		GradeTooLowException();
-		// };
-		// class GradeTooLowException : public std::runtime_error
-		// {
-		// 	public:
-		// 		GradeTooHighException();
-		// };
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char *what() const throw() {
+					return "Grade too low exception";
+				}
+		};
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char *what() const throw() {
+					return "Grade too high exception";
+				}
+		};
 };
 
 std::ostream& operator<< (std::ostream &out, Bureaucrat const& obj);
