@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Form.hpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/03/17 21:06:49 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/17 21:36:55 by nhariman      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nhariman <nhariman@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/17 21:06:49 by nhariman          #+#    #+#             */
+/*   Updated: 2022/03/18 14:37:17 by nhariman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define FORM_HPP
 
 #include <iostream>
-#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -25,7 +26,6 @@ class Form
 		const unsigned int	_gradeExec;
 		Form();
 	public:
-		Form(std::string const name, unsigned int const gradeSign, unsigned int const gradeExec);
 		Form(std::string name, unsigned int gradeSign, unsigned int gradeExec);
 		Form(const Form& obj);
 		Form&	operator=(const Form& obj);
@@ -34,7 +34,7 @@ class Form
 		bool			getSignature() const;
 		unsigned int	getGradeSign() const;
 		unsigned int	getGradeExec() const;
-		void			beSigned(Bureaucrat obj);
+		void			beSigned(Bureaucrat &obj);
 		class GradeTooLowException : public std::exception
 		{
 			public:

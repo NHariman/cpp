@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Bureaucrat.hpp                                     :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/03/02 13:52:13 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/17 21:33:31 by nhariman      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nhariman <nhariman@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/02 13:52:13 by nhariman          #+#    #+#             */
+/*   Updated: 2022/03/18 14:37:07 by nhariman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 // https://stackoverflow.com/questions/8152720/correct-way-to-inherit-from-stdexception
 // on exceptions
 
-class Form;
+# include "Form.hpp"
 
 class	Bureaucrat
 {
@@ -43,7 +43,7 @@ class	Bureaucrat
 		Bureaucrat&	operator++ (); // pre-increment
 		Bureaucrat	operator-- (int); // post-increment
 		Bureaucrat&	operator-- (); // pre-increment
-		void		signForm(Form obj);
+		void		signForm(Form &obj);
 		class GradeTooLowException : public std::exception
 		{
 			public:

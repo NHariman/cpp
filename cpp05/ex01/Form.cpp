@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Form.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/03/17 21:06:24 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/17 21:42:07 by nhariman      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nhariman <nhariman@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/17 21:06:24 by nhariman          #+#    #+#             */
+/*   Updated: 2022/03/18 14:54:44 by nhariman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
-Form::Form(				std::string	const name, 
-						unsigned int const gradeSign, 
-						unsigned int const gradeExec) :
-						_name(name), _gradeSign(gradeSign), 
-						_gradeExec(gradeExec), _signature(false)
-{
-	if (_gradeSign < 1 || _gradeExec < 1)
-		throw GradeTooHighException();
-	else if (_gradeSign > 150 || _gradeExec > 150)
-		throw GradeTooLowException();
-	std::cout << "A form has been created" << std::endl;
-}
+#include "Bureaucrat.hpp"
 
 Form::Form(				std::string name, 
 						unsigned int gradeSign, 
-						unsigned int gradeExec) :
-						_name(name), _gradeSign(gradeSign), 
-						_gradeExec(gradeExec), _signature(false)
+						unsigned int gradeExec) : \
+						_name(name), _signature(false), _gradeSign(gradeSign), \
+						_gradeExec(gradeExec)
 {
 	if (_gradeSign < 1 || _gradeExec < 1)
 		throw GradeTooHighException();
@@ -38,11 +26,16 @@ Form::Form(				std::string name,
 	std::cout << "A form has been created" << std::endl;
 }
 
-Form::Form(const Form& obj) :
-						_name(obj.getName()), _gradeSign(obj.getGradeSign()), 
-						_gradeExec(obj.getGradeExec()), _signature(obj.getSignature())
+Form::Form(const Form& obj) : \
+						_name(obj.getName()), _signature(obj.getSignature()), _gradeSign(obj.getGradeSign()), \
+						_gradeExec(obj.getGradeExec())
 {
 	std::cout << "Form Copy constructor called" << std::endl;
+}
+
+Form::~Form()
+{
+	std::cout << "Form " << this->_name << " has been destroyed." << std::endl;
 }
 
 Form&	Form::operator=(const Form& obj)
@@ -52,6 +45,7 @@ Form&	Form::operator=(const Form& obj)
 	else
 		throw GradeTooLowException();
 	std::cout << "Signature has been copied over." << std::endl;
+	return *this;
 }
 
 std::string		Form::getName()	const
@@ -74,7 +68,7 @@ unsigned int	Form::getGradeExec() const
 	return this->_gradeExec;
 }
 
-void			Form::beSigned(Bureaucrat obj)
+void			Form::beSigned(Bureaucrat &obj)
 {
 	if (obj.getGrade() <= this->_gradeSign)
 		this->_signature = true;
@@ -84,8 +78,8 @@ void			Form::beSigned(Bureaucrat obj)
 
 std::ostream& operator<< (std::ostream &out, Form const& obj)
 {
-	out << "Name of Form: " << obj.getName() << \
+	return out << "Name of Form: " << obj.getName() << \
 	"\nGrade for signing this form: " << obj.getGradeSign() << \
 	"\nGrade for executing this form: " << obj.getGradeExec() << \
-	"\nSigned: " << obj.getSignature() << std::endl;
+	"\nSigned: " << obj.getSignature();
 }

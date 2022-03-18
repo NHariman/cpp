@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Bureaucrat.cpp                                     :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/03/02 13:52:11 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/17 21:36:00 by nhariman      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nhariman <nhariman@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/02 13:52:11 by nhariman          #+#    #+#             */
+/*   Updated: 2022/03/18 17:22:08 by nhariman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,9 +139,17 @@ Bureaucrat&	Bureaucrat::operator-- () // pre-increment
 	return *this;
 }
 
-void	Bureaucrat::signForm(Form obj)
+void	Bureaucrat::signForm(Form &obj)
 {
-	obj.beSigned(*this);
+	try
+	{
+		obj.beSigned(*this);
+		std::cout << this->_name << " has signed form: " << obj.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->_name << " could not sign form " << obj.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 std::ostream& operator<< (std::ostream &out, Bureaucrat const& obj)
