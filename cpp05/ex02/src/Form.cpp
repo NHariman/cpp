@@ -6,12 +6,12 @@
 /*   By: nhariman <nhariman@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/17 21:06:24 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/21 20:37:22 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/21 20:34:18 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
-#include "Bureaucrat.hpp"
+#include "../inc/Form.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 Form::Form(				std::string name, 
 						unsigned int gradeSign, 
