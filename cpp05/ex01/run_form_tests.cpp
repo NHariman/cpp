@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   run_form_tests.cpp                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nhariman <nhariman@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 14:21:14 by nhariman          #+#    #+#             */
-/*   Updated: 2022/03/18 19:13:49 by nhariman         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   run_form_tests.cpp                                 :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: nhariman <nhariman@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/03/18 14:21:14 by nhariman      #+#    #+#                 */
+/*   Updated: 2022/03/21 15:47:33 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,29 +64,64 @@ void	run_form_tests()
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << B_GREEN << "\nForm copy constructor test:" << B_END << std::endl;
+	std::cout << B_GREEN << "Form C:" << B_END << std::endl;
+	std::cout << C << std::endl;
+	std::cout << B_GREEN << "Create Bureaucrat" << B_END << std::endl;
+	Bureaucrat lol = Bureaucrat("lol", 1);
+	std::cout << lol << std::endl;
+	std::cout << B_GREEN << "Sign form" << B_END << std::endl;
+	lol.signForm(C);
+	std::cout << C << std::endl;
+	std::cout << B_GREEN << "Create form D with Form(C)" << B_END << std::endl;
+	Form D = Form(C);
+	std::cout << "Form D: " << D << std::endl;
+	std::cout << B_GREEN << "Create Form E with 2, 2" << B_END << std::endl;
+	Form E = Form("E", 2, 2);
+	std::cout << B_GREEN << "Try to copy C to E:" << B_END << std::endl;
 	try
 	{
-		std::cout << B_GREEN << "Form C:" << B_END << std::endl;
-		std::cout << C << std::endl;
-		std::cout << B_GREEN << "Create Bureaucrat" << B_END << std::endl;
-		Bureaucrat lol = Bureaucrat("lol", 1);
-		std::cout << lol << std::endl;
-		std::cout << B_GREEN << "Sign form" << B_END << std::endl;
-		lol.signForm(C);
-		std::cout << C << std::endl;
-		std::cout << B_GREEN << "Create form D with Form(C)" << B_END << std::endl;
-		Form D = Form(C);
-		std::cout << "Form D: " << D << std::endl;
-		std::cout << B_GREEN << "Create Form E with 2, 2" << B_END << std::endl;
-		Form E = Form("E", 2, 2);
-		std::cout << B_GREEN << "Try to copy C to E:" << B_END << std::endl;
 		E = C;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << B_GREEN << "Bad constructor values:" << B_END << std::endl;
+	try
+	{
+		std::cout << B_GREEN << "too low F, 151, 1:" << B_END << std::endl;
+		Form F = Form("F", 151, 1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << B_GREEN << "too low F, 1, 151:" << B_END << std::endl;
+		Form F = Form("F", 1, 151);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << B_GREEN << "too high F, 0, 1:" << B_END << std::endl;
+		Form F = Form("F", 0, 1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << B_GREEN << "too low F, 1, 0:" << B_END << std::endl;
+		Form F = Form("F", 1, 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	std::cout << B_GREENB << "\nEND" << B_END << std::endl;
-
-
 }
