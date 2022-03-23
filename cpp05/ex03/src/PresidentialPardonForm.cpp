@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/21 16:43:47 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/21 21:05:31 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/23 10:08:02 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include "../inc/Form.hpp"
 #include "../inc/Bureaucrat.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("Presidential Pardon Form", 72, 45)
+PresidentialPardonForm::PresidentialPardonForm() : Form("Presidential Pardon Form", 25, 5)
 { 	
 	std::cout << "A shrubbery form for at: " << "TARGET UNDEFINED" << " has been created" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : \
-							Form(target + " Presidential Pardon Form", 72, 45), _target(target)
+							Form(target + " Presidential Pardon Form", 25, 5), _target(target)
 {
 	std::cout << "A Presidential Pardon form for at: " << target << " has been created" << std::endl;
 }

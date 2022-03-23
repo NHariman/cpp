@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/22 15:35:44 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/22 17:02:55 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/23 10:00:54 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Intern::Intern()
 {
-	std::cout << "An Intern has been made" << std::endl;
+	std::cout << "An Intern has been hired" << std::endl;
 }
 
 Intern::~Intern()
@@ -36,9 +36,9 @@ Intern&	Intern::operator=(Intern const &obj)
 	return (*this);
 }
 
-Form*	makeForm(std::string formName, std::string targetName)
+Form*	Intern::makeForm(std::string formName, std::string targetName)
 {
-	const std::string	forms[] = { "robotomy form", "presidential pardon form", "shrubbery request form"};
+	const std::string	forms[] = { "robotomy request", "presidential pardon", "shrubbery creation"};
 
 	Form *tmp;
 
@@ -65,6 +65,11 @@ Form*	makeForm(std::string formName, std::string targetName)
 		default:
 		{
 			std::cerr << "The Intern cries: The Form requested does not exist!" << std::endl;
+			std::cerr << "Available forms:\n" << \
+			"- robotomy request\n" << \
+			"- presidential pardon\n" << \
+			"- shrubbery creation\n" << \
+			"CASE SENSITIVE!" << std::endl;
 			return(NULL);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/22 15:30:03 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/22 17:02:53 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/23 09:44:36 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ class Intern
 		Intern(Intern const & obj);
 		Intern&	operator=(Intern const &obj);
 		Form*	makeForm(std::string formName, std::string targetName);
-}
+};
 
 #endif
