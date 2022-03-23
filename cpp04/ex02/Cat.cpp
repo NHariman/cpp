@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 20:38:47 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/23 21:13:42 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Cat&	Cat::operator=(const Cat& obj)
 	return (*this);
 }
 
-void	Cat::makeSound()
+void	Cat::makeSound() const
 {
 	std::cout << this->getSound() << std::endl;
 }

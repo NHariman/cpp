@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:04:50 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 20:38:54 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/23 21:13:47 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Brain*	Dog::getBrain() const
 	return this->_brain;
 }
 
-void	Dog::makeSound()
+void	Dog::makeSound() const
 {
 	std::cout << this->_sound << std::endl;
 }
