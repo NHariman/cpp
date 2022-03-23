@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:18 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 15:21:01 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/23 21:16:15 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class	Animal
 		virtual void	makeSound() const;
 		Animal(std::string const type);
 		std::string	getType() const;
-		virtual Brain*	getBrain() const = 0;
+		virtual Brain*	getBrain() const; // remove because otherwise you always have to instantiate a brain function
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:34 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 18:35:24 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/23 21:16:47 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Dog : public Animal
 		virtual ~Dog();
 		Dog(const Dog& obj);
 		Dog&	operator=(const Dog& obj);
-		void	makeSound() const;
+		virtual void	makeSound() const;
 		std::string	getSound() const;
 		void		setSound(std::string sound);
 		Brain*		getBrain() const;

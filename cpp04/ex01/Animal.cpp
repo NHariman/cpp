@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:31:48 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/17 15:23:15 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/23 21:16:25 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,10 @@ std::string	Animal::getType() const
 void		Animal::setType(std::string type)
 {
 	this->_type = type;
+}
+
+Brain*	Animal::getBrain() const
+{
+	std::cerr << "No brain detected :\\" << std::endl;
+	return NULL;
 }

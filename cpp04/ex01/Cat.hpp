@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:32:22 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/02/16 21:50:25 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/03/23 21:16:39 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cat : public Animal
 	public:
 		Cat();
 		virtual ~Cat();
-		void	makeSound() const;
+		virtual void	makeSound() const;
 		std::string	getSound() const;
 		void		setSound(std::string sound);
 		Brain*		getBrain() const;
