@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ToLiteral.cpp                                      :+:    :+:            */
+/*   Conversions.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/23 15:03:21 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/03/23 15:24:05 by nhariman      ########   odam.nl         */
+/*   Created: 2022/04/06 16:34:36 by nhariman      #+#    #+#                 */
+/*   Updated: 2022/04/06 21:34:06 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ToLiteral.hpp"
+#ifndef CONVERSIONS_HPP
+# define CONVERSIONS_HPP
+
+#include <iostream>
 
 // https://www.cplusplus.com/doc/oldtutorial/typecasting/
 // https://www.geeksforgeeks.org/static_cast-in-c-type-casting-operators/
@@ -20,7 +23,24 @@
 // reinterpret_cast
 // const_cast
 
-class ToLiteral
+class Conversions
 {
-	
+	public:
+		char			_c;
+		int				_i;
+		float			_f;
+		double			_d;
+		Conversions();
+		~Conversions();
+		Conversions(const Conversions& obj);
+		Conversions&	operator=(const Conversions& obj);
 };
+
+Conversions		fromInt(char* input);
+Conversions		fromChar(char* input);
+Conversions		fromFloat(char* input);
+Conversions		fromDouble(char* input);
+
+std::ostream&	operator<< (std::ostream &out, Conversions const & obj);
+
+#endif
