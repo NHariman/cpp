@@ -6,55 +6,36 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/23 15:28:51 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/04/06 22:20:57 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/04/07 21:53:33 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/Conversions.hpp"
-#include <iostream>
-#include <string>
-#include <locale>
+#include "inc/convert.hpp"
 
 // char, int, float, double
 
-int		input_validation(char *input, int *float_check)
-{
-	char *tmp;
-	double d = strtod(input, &tmp);
-	std::locale loc;
-	std::string str(tmp);
-	std::string::size_type i = 0;
-	if (str[i] == 'f')
-	{
-		*float_check = 1;
-		i++;
-	}
-	while (i < str.length() && (!std::isalnum(str[i])))
-		i++;
-	if (str.length() == i)
-		return (0);
-	return (1);
-}
-
 int		main(int ac, char **av)
 {
-	int float_check = 0;
-	if (ac < 2 || ac > 2 || input_validation(av[1], &float_check))
+	char suffix_check;
+	std::string input(av[1]);
+	if (ac < 2 || ac > 2 || input_validation(input, &suffix_check))
 	{
 		std::cerr << "Wrong input detected. Can only convert one scalar type at a time." << std::endl;
 		return (0);
 	}
-	Conversions result;
-	if (float_check)
-		result = fromFloat(av[1]);
+	// Conversions result;
+	if (suffix_check == 'f' || suffix_check == 'F')
+		std::cout << "Float time" << std::endl; // result = fromFloat(av[1]);
+	else if (double_check(input))
+		std::cout << "Double time" << std::endl; // result = fromDouble(av[1]);
+	else if (int_check(input))
+		std::cout << "int time" << std::endl; // result = fromInt(av[1]);
+	else if (char_check(input))
+		std::cout << "char time" << std::endl; // result = fromChar(av[1]);
 	else
-	{
-		// oh god okay just do max >= result >= int min int
-		// same for double
-		// check if char????? somehow??
-	}
-	std::string input(av[1]);
-	std::cout << input << std::endl;
+		std::cerr << "Wrong input detected." << std::endl;
+	std::cout << input << std::endl; 
 	std::cout << input.length() << std::endl;
 
 	

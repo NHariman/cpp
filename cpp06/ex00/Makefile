@@ -6,7 +6,7 @@
 #    By: nhariman <nhariman@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/23 13:05:39 by nhariman      #+#    #+#                  #
-#    Updated: 2022/03/23 21:33:07 by nhariman      ########   odam.nl          #
+#    Updated: 2022/04/07 21:26:11 by nhariman      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ COMPILE = clang++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-FILES = main.cpp
+FILES = main.cpp \
+		src/validation.cpp
 
 
 OFILES = $(FILES:.cpp=.o)

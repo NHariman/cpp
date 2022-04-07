@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/06 16:34:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/04/06 21:34:06 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/04/07 17:47:32 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 class Conversions
 {
 	public:
+		std::string		_input;
 		char			_c;
 		int				_i;
 		float			_f;
