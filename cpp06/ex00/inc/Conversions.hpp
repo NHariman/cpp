@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/06 16:34:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/04/07 17:47:32 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/04/08 18:01:50 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,14 @@
 // reinterpret_cast
 // const_cast
 
-class Conversions
+struct Conversions
 {
-	public:
-		std::string		_input;
-		char			_c;
-		int				_i;
-		float			_f;
-		double			_d;
-		Conversions();
-		~Conversions();
-		Conversions(const Conversions& obj);
-		Conversions&	operator=(const Conversions& obj);
+	char			_type;
+	std::string		_input;
+	char			_c;
+	int				_i;
+	float			_f;
+	double			_d;
 };
 
 Conversions		fromInt(char* input);
