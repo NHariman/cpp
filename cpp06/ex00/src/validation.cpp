@@ -6,11 +6,12 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/07 19:42:54 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/04/07 22:12:49 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/04/12 18:12:55 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/convert.hpp"
+#include <limits.h>
 
 int		input_validation(std::string input, char *suffix_check)
 {
@@ -38,26 +39,15 @@ int		input_validation(std::string input, char *suffix_check)
 	return (1);
 }
 
-int		double_check(std::string input)
-{
-	char *tmp;
-	double d = strtod(input.c_str(), &tmp); // also handles nan, inf etc.
-	std::size_t	dot = input.find('.');
-	std::size_t e = input.find('e');
-	std::size_t cap_e = input.find('E');
-	if ((dot != std::string::npos || e != std::string::npos || cap_e != std::string::npos) && d != 0.0)
-		return (1);
-	return (0);
-}
-
 int		int_check(std::string input)
 {
 	std::locale loc;
 	std::string::size_type i = 0;
-	
+
+	double d = strtod(input.c_str(), NULL);
 	while (i < input.length() && (std::isdigit(input[i])))
 		i++;
-	if (input.length() == i)
+	if (input.length() == i && d <= INT_MAX && d >= INT_MIN)
 		return (1);
 	return (0);
 }

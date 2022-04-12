@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/23 15:28:51 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/04/08 20:20:03 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/04/12 18:06:06 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ int		main(int ac, char **av)
 	Conversions result;
 	if (suffix_check == 'f' || suffix_check == 'F')
 		result = fromFloat(av[1]); // std::cout << "Float time" << std::endl; // result = fromFloat(av[1]);
-	else if (double_check(input))
-		result = fromDouble(av[1]); // std::cout << "Double time" << std::endl; // result = fromDouble(av[1]);
 	else if (int_check(input))
 		result = fromInt(av[1]); // std::cout << "int time" << std::endl; // result = fromInt(av[1]);
 	else if (char_check(input))
 		result = fromChar(av[1]); // std::cout << "char time" << std::endl; // result = fromChar(av[1]);
-	std::cout << input << std::endl; 
-	std::cout << input.length() << std::endl;
+	else
+		result = fromDouble(av[1]); // std::cout << "Double time" << std::endl; // result = fromDouble(av[1]);
 	std::cout << result << std::endl;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/06 16:34:36 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/04/08 18:01:50 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/04/12 18:02:45 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@
 
 struct Conversions
 {
-	char			_type;
-	std::string		_input;
 	char			_c;
 	int				_i;
 	float			_f;
