@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/06 16:34:20 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/04/12 18:05:38 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/04/12 20:40:47 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,14 @@ static	void	int_return_string(Conversions obj, std::ostream *out)
 static	void	float_return_string(Conversions obj, std::ostream *out)
 {
 	*out << "float: " << obj._f;
-	if (obj._f == (int)obj._f)
+	if (obj._f == static_cast<int>(obj._f))
 		*out << ".0";
 	*out << "f" << std::endl;
 }
 
 static	std::string	double_return_string(Conversions obj)
 {
-	if (obj._f == (int)obj._f)
+	if (obj._f == static_cast<int>(obj._f))
 		return (".0");
 	return std::string();
 }
