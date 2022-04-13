@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 15:58:03 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/01/19 14:02:23 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/04/13 15:18:33 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class DiamondTrap : public FragTrap, public ScavTrap
 {
 	private:
 		std::string _name;
-		DiamondTrap();
 	protected:
+		DiamondTrap();
 		void	setName(std::string name);
 	public:
 		void	attack(std::string const &target);
