@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/06 16:34:20 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/04/12 20:40:47 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/04/13 20:58:00 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 // static_cast
 // reinterpret_cast
 // const_cast
+
+/*
+	static casting:
+	https://www.geeksforgeeks.org/static_cast-in-c-type-casting-operators/
+	simple C++ style of converting one type to another.
+*/
 
 Conversions		fromInt(char *input)
 {
