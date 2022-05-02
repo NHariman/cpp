@@ -2,6 +2,9 @@
 #include "inc/Array.hpp"
 #include "inc/colours.hpp"
 
+// TODO: 
+// - compare addresses between two arrays, if two addresses are the same, return an error
+
 #define MAX_VAL 750
 int main(int, char**)
 {
