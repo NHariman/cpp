@@ -6,14 +6,14 @@ FILES = main.cpp
 
 OFILES = $(FILES:.cpp=.o)
 
-NAME = myFirstTemplates
+NAME = executable
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
 	@$(COMPILE) $(OFILES) -o $@
 
-%.o: src/%.cpp tests/%.cpp inc/%.hpp
+%.o: src/%.cpp inc/%.hpp
 	@$(COMPILE) $(FLAGS) -c $< -o $@
 
 clean:
