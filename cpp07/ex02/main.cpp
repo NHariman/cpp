@@ -32,11 +32,17 @@ int main(int, char**)
         std::cout << B_GREEN << "tmp = numbers; < should trigger the assignation operator" << B_END << std::endl;
         tmp = numbers;
         std::cout << B_GREEN << "Compare values in tmp to values in numbers, if a number doesn't match it prints an error" << B_END << std::endl;
+        std::cout << B_GREEN << "Also checks if the copy is deep by comparing addresses, if identical address is found an error is printed." << B_END << std::endl;
         for (int i = 0; i < MAX_VAL; i++)
         {
             if (tmp[i] != numbers[i])
             {
                std::cerr << "didn't save the same value!!" << std::endl;
+                return 1;
+            }
+            else if (&tmp[i] == &numbers[i])
+            {
+                std::cerr << "Identical addresses, deepcopy failed!!" << std::endl;
                 return 1;
             }
             std::cout << ".";
@@ -46,11 +52,17 @@ int main(int, char**)
         std::cout << B_GREEN << "Array<int> temp = numbers;" << B_END << std::endl;
         Array<int> temp = numbers;        
         std::cout << B_GREEN << "Compare values in temp to values in numbers, if a number doesn't match it prints an error" << B_END << std::endl;
+        std::cout << B_GREEN << "Also checks if the copy is deep by comparing addresses, if identical address is found an error is printed." << B_END << std::endl;
         for (int i = 0; i < MAX_VAL; i++)
         {
             if (temp[i] != numbers[i])
             {
                std::cerr << "didn't save the same value!!" << std::endl;
+                return 1;
+            }
+            else if (&temp[i] == &numbers[i])
+            {
+                std::cerr << "Identical addresses, deepcopy failed!!" << std::endl;
                 return 1;
             }
             std::cout << ".";
@@ -60,6 +72,7 @@ int main(int, char**)
         std::cout << B_GREEN << "Array<int> test(tmp); < should trigger the copy constructor" << B_END << std::endl;
         Array<int> test(tmp);
         std::cout << B_GREEN << "Compare values in test to values in numbers, if a number doesn't match it prints an error" << B_END << std::endl;
+        std::cout << B_GREEN << "Also checks if the copy is deep by comparing addresses, if identical address is found an error is printed." << B_END << std::endl;
         for (int i = 0; i < MAX_VAL; i++)
         {
             if (test[i] != numbers[i])
@@ -67,16 +80,27 @@ int main(int, char**)
                std::cerr << "didn't save the same value!!" << std::endl;
                 return 1;
             }
+            else if (&test[i] == &numbers[i])
+            {
+                std::cerr << "Identical addresses, deepcopy failed!!" << std::endl;
+                return 1;
+            }
             std::cout << ".";
         }
         std::cout << B_GREEN << "\nSuccess!" << B_END << std::endl;
     }
     std::cout << B_GREEN << "Compare values in mirror to values in numbers, if a number doesn't match it prints an error" << B_END << std::endl;
+     std::cout << B_GREEN << "Also checks if the copy is deep by comparing addresses, if identical address is found an error is printed." << B_END << std::endl;
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
         {
             std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+        else if (&mirror[i] == &numbers[i])
+        {
+            std::cerr << "Identical addresses, deepcopy failed!!" << std::endl;
             return 1;
         }
         std::cout << ".";
@@ -107,5 +131,6 @@ int main(int, char**)
     }
     std::cout << B_RED << "Complete!" << B_END << std::endl;
     delete [] mirror;//
+    //while (1) {;} //uncomment for for leaks check
     return 0;
 }
