@@ -2,18 +2,19 @@ COMPILE = clang++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-FILES = main.cpp
+FILES = main.cpp \
+		Span.cpp
 
 OFILES = $(FILES:.cpp=.o)
 
-NAME = myFirstTemplates
+NAME = ex02
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
 	@$(COMPILE) $(OFILES) -o $@
 
-%.o: src/%.cpp tests/%.cpp inc/%.hpp
+%.o:
 	@$(COMPILE) $(FLAGS) -c $< -o $@
 
 clean:
