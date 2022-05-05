@@ -13,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OFILES)
 	@$(COMPILE) $(OFILES) -o $@
 
-%.o:
+%.o: %.cpp
 	@$(COMPILE) $(FLAGS) -c $< -o $@
 
 clean:

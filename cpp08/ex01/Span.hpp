@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/04 15:46:53 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/05/04 17:46:08 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/05/05 19:36:49 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ class Span
 		void				addNumber(int i);
 		unsigned int		maxSize(void) const;
 		std::list<int>		getList(void) const;
-		unsigned long int	shortestSpan(void);
-		unsigned long int	longestSpan(void);
+		unsigned int		shortestSpan(void);
+		unsigned int		longestSpan(void);
+		void				fillSpan(void);
+		void				printList(void);
 		class NoSpanException : public std::exception
 		{
 			public:

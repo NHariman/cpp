@@ -7,14 +7,14 @@ FILES = main.cpp \
 
 OFILES = $(FILES:.cpp=.o)
 
-NAME = ex02
+NAME = ex01
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
 	@$(COMPILE) $(OFILES) -o $@
 
-%.o:
+%.o: %.cpp
 	@$(COMPILE) $(FLAGS) -c $< -o $@
 
 clean:
