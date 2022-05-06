@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/04 16:49:26 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/05/05 19:57:33 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/05/06 17:57:09 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,8 @@ unsigned int	Span::longestSpan(void)
 
 void			Span::fillSpan(void)
 {
-	// for (int i = 0; i < static_cast<int>(this->_n) ; i++)
-    // 	this->_l.push_back(rand()); // this is what works
-	std::fill(this->_l.begin(), this->_l.end(), rand()); // this is probably what they WANT??
+	for (int i = 0; i < static_cast<int>(this->_n) ; i++)
+    	this->_l.push_back(rand()); // this is what works
 }
 
 void			Span::printList(void)
