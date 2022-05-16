@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/16 19:17:52 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/05/16 19:52:14 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/05/16 20:03:51 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		main(void)
 		std::cout << *it << std::endl;
 		++it;
 	}
+	// only this part doesn't work yet
 	std::stack<int> s(mstack);
 	return 0;
 }
