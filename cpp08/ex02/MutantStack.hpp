@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   MutantStack.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
+/*   By: nhariman <nhariman@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/06 18:06:17 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/05/16 19:48:00 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/05/17 18:20:32 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,29 @@
 #define MUTANTSTACK_HPP
 #include <iostream>
 #include <deque>
+#include <stack>
+#include <stdexcept>
 
 /*
 	https://stackoverflow.com/questions/7758580/writing-your-own-stl-container
 	on making your own STL container
 */
 template<class T, class Container = std::deque<T> >
-class MutantStack
+class MutantStack : public std::stack<T>
 {
 	protected:
 		//member object
 		Container	c;
 	public:
 		// Member types
-		typedef Container Container_type;
-    	typedef typename Container::value_type 		value_type; 
-    	typedef typename Container::size_type 		size_type;
-    	typedef typename Container::reference 		reference;
-    	typedef typename Container::const_reference	const_reference;
-		typedef	typename Container::deque::iterator	iterator;
-		typedef typename Container::deque::reverse_iterator	reverse_iterator;
-		typedef	typename Container::deque::const_iterator	const_iterator;
+		typedef Container											Container_type;
+    	typedef typename Container::value_type 						value_type; 
+    	typedef typename Container::size_type 						size_type;
+    	typedef typename Container::reference 						reference;
+    	typedef typename Container::const_reference					const_reference;
+		typedef	typename Container::deque::iterator					iterator;
+		typedef typename Container::deque::reverse_iterator			reverse_iterator;
+		typedef	typename Container::deque::const_iterator			const_iterator;
 		typedef typename Container::deque::const_reverse_iterator	const_reverse_iterator;
 		
 		// constructor, destructor, assignment
@@ -56,11 +58,15 @@ class MutantStack
 		// element access
 		reference		top(void)
 		{
-			return this->c.back();
+			if (!c.empty())
+				return this->c.back();
+			throw OutOfBoundsException();
 		};
 		const_reference top(void) const
 		{
-			return this->c.back();
+			if (!c.empty())
+				return this->c.back();
+			throw OutOfBoundsException();
 		};
 		// capacity
 		bool			empty(void) const
@@ -78,7 +84,9 @@ class MutantStack
 		};
 		void			pop(void)
 		{
-			this->c.pop_back();
+			if (c.empty())
+				throw OutOfBoundsException();
+			this->c.pop_back();			
 		};
 
 		// iterators
@@ -98,7 +106,13 @@ class MutantStack
 		{
 			return this->c.end();
 		};
-
+		class OutOfBoundsException : public std::exception
+		{
+			public:
+				const char *what() const throw() {
+					return "Out of Bounds Exception, this should actually crash in real program that doesn't have a crash flag implemented";
+				}
+		};
 };
 
 // nonmember functions
