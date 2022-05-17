@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Conversions.cpp                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
+/*   By: nhariman <nhariman@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/06 16:34:20 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/04/13 20:58:00 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/05/17 18:48:44 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ static std::string	char_return_string(Conversions obj)
 static	void	int_return_string(Conversions obj, std::ostream *out)
 {
 	// check if int did not overflow. if it did write impossible.
-	if (obj._d > INT_MAX || obj._d < INT_MIN || (float)obj._i != obj._f)
+	if (obj._d > INT_MAX || obj._d < INT_MIN || static_cast<float>(obj._i) != obj._f)
 		*out << "int: " << "impossible" << std::endl;
 	else
 		*out << "int: " << obj._i << std::endl;
