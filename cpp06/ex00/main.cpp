@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/23 15:28:51 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/04/12 18:06:06 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/05/19 17:01:51 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 int		main(int ac, char **av)
 {
 	char suffix_check;
+	if (ac == 1)
+	{
+		std::cerr << "No input detected." << std::endl;
+		return (1);
+	}
 	std::string input(av[1]);
 	if (ac < 2 || ac > 2 || input_validation(input, &suffix_check))
 	{
