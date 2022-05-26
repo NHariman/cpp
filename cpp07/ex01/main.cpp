@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/13 21:59:18 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/04/13 22:24:47 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/05/26 17:43:30 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 
+// the tester users a const when printing!
 static void	print_str(std::string str)
 {
 	std::cout << str << std::endl;
