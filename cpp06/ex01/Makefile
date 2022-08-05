@@ -6,11 +6,11 @@
 #    By: nhariman <nhariman@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/23 13:05:39 by nhariman      #+#    #+#                  #
-#    Updated: 2022/04/12 22:00:30 by nhariman      ########   odam.nl          #
+#    Updated: 2022/08/05 16:56:23 by nhariman      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-COMPILE = clang++
+COMPILE = c++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 

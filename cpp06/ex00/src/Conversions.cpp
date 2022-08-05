@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/06 16:34:20 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/05/17 18:48:44 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/08/05 17:59:58 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,18 +85,19 @@ static std::string	char_return_string(Conversions obj)
 {
 	std::string	char_str(1, obj._c);
 	
-	if (std::isprint(obj._c))
-		return (char_str);
-	else if ((obj._f <= 255 && obj._f >= 0))
+	if (obj._i > CHAR_MAX || obj._i < CHAR_MIN)
+		return "impossible";
+	else if (std::isprint(obj._c) == 0)
 		return "non displayable";
 	else
-		return "impossible";
+		return (char_str);
+
 }
 
 static	void	int_return_string(Conversions obj, std::ostream *out)
 {
 	// check if int did not overflow. if it did write impossible.
-	if (obj._d > INT_MAX || obj._d < INT_MIN || static_cast<float>(obj._i) != obj._f)
+	if (obj._d > INT_MAX || obj._d < INT_MIN)
 		*out << "int: " << "impossible" << std::endl;
 	else
 		*out << "int: " << obj._i << std::endl;
