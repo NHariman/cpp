@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/06 16:34:20 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/08/05 17:59:58 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/08/09 14:33:50 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static std::string	char_return_string(Conversions obj)
 static	void	int_return_string(Conversions obj, std::ostream *out)
 {
 	// check if int did not overflow. if it did write impossible.
-	if (obj._d > INT_MAX || obj._d < INT_MIN)
+	if (obj._d > INT_MAX || obj._d < INT_MIN || (static_cast<double>(obj._i) != obj._d && obj._i == INT_MIN))
 		*out << "int: " << "impossible" << std::endl;
 	else
 		*out << "int: " << obj._i << std::endl;
