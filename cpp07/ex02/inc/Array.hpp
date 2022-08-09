@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/14 15:18:41 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/05/02 19:58:04 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/08/09 15:04:11 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Array{
 		T*	_array;
 		Array() : _len(10)
 		{
-			std::cout << B_BLUEB << "Created an array of 10" << B_END << std::endl;
+			std::cout << B_BLUEB << "Default Constructor: Created an array of 10" << B_END << std::endl;
 			_array = new T[10]; // creates an empty array of length 10
 		};
 		~Array(){
@@ -41,7 +41,7 @@ class Array{
 		Array(unsigned int n) : _len(n)
 		{
 			_array = new T[n];
-			std::cout << B_BLUEB << "Created an array of length: " << n << B_END << std::endl;
+			std::cout << B_BLUEB << "Constructor that takes unsigned int: Created an array of length: " << n << B_END << std::endl;
 		};
 		T	&operator[](int i)
 		{
