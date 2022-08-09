@@ -18,6 +18,9 @@ printf "${CYAN} > ../convert 127 (max char)${NC}\n"
 printf "${CYAN} > ../convert 128 (over max char)${NC}\n"
 ../convert 128
 
+printf "${CYAN} > ../convert 300 (over max char)${NC}\n"
+../convert 300
+
 printf "\n${CYAN} > ../convert -2147483648 (int min)${NC}\n"
 ../convert -2147483648
 
