@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/04 16:49:26 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/05/06 17:57:09 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/08/16 19:36:55 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ unsigned int	Span::shortestSpan(void)
 {
 	if (this->_l.empty() || this->_l.size() == 1)
 		throw NoSpanException();
-	std::list<int>::iterator pos;
-	std::list<int>::iterator next_pos;
+	std::list<int>::iterator pos(this->_l.begin());
+	std::list<int>::iterator next_pos = ++pos;
 	std::list<int>::iterator end(this->_l.end());
 	end = std::prev(end, 2);
 
@@ -94,12 +94,17 @@ unsigned int	Span::longestSpan(void)
 {
 	if (this->_l.empty() || this->_l.size() == 1)
 		throw NoSpanException();
-	return (*std::max_element(this->_l.begin(), this->_l.end()) - *std::min_element(this->_l.begin(), this->_l.end()));
+	std::cout << "\nmax element in longest span: " << *std::max_element(this->_l.begin(), this->_l.end()) << std::endl;
+	std::cout << "min element in longest span: " << *std::min_element(this->_l.begin(), this->_l.end()) << std::endl;
+	return (std::abs(*std::max_element(this->_l.begin(), this->_l.end()) - *std::min_element(this->_l.begin(), this->_l.end())));
 }
 
 void			Span::fillSpan(void)
 {
-	for (int i = 0; i < static_cast<int>(this->_n) ; i++)
+	size_t size = _l.size();
+	if (size == _n)
+		throw ListFullException();
+	for (int i = size; i < static_cast<int>(this->_n) ; i++)
     	this->_l.push_back(rand()); // this is what works
 }
 
