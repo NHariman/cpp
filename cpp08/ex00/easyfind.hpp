@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <stdexcept>
 
 /*
 	on STL (Standard Template Libary) containers:
@@ -35,20 +37,27 @@
 	typename vs class: https://pages.cs.wisc.edu/~driscoll/typename.html
 */
 
-
+class ValueNotFoundException : public std::exception {
+	public:
+		const char *what() const throw() {
+			return "Value not found.";
+		}
+};
 
 template <typename T>
 int		easyfind(const T& container, int find)
 {
-	typename T::const_iterator pos;
+	typename T::const_iterator pos(container.begin());
 	typename T::const_iterator end(container.end());
 
-	for (pos = container.begin(); pos != end; pos++)
-	{
-		if (*pos == find)
-			return *pos;
-	}
-	throw "Value not found.";
+	typename T::const_iterator found;
+
+	found = std::find(pos, end, find);
+	if (found != std::end(container))
+		return *found;
+	throw ValueNotFoundException();
 }
+
+
 
 #endif

@@ -27,9 +27,9 @@ int		main(void)
 		{
 			easyfind(vect, 10);
 		}
-		catch(char const *str)
+		catch(const std::exception& e)
 		{
-			std::cerr << str << '\n';
+			std::cerr << e.what() << '\n';
 		}
 	}
 	{
@@ -51,9 +51,9 @@ int		main(void)
 		{
 			easyfind(gquiz, 100);
 		}
-		catch(char const *str)
+		catch(const std::exception& e)
 		{
-			std::cerr << str << '\n';
+			std::cerr << e.what() << '\n';
 		}
 	}
 	{
@@ -76,9 +76,9 @@ int		main(void)
 		{
 			easyfind(l, 100);
 		}
-		catch(char const* str)
+		catch(const std::exception& e)
 		{
-			std::cerr << str << '\n';
+			std::cerr << e.what() << '\n';
 		}
 	}
 	return 0;
