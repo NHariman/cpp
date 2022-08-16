@@ -6,7 +6,7 @@
 /*   By: nhariman <nhariman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/04 16:49:26 by nhariman      #+#    #+#                 */
-/*   Updated: 2022/08/16 19:36:55 by nhariman      ########   odam.nl         */
+/*   Updated: 2022/08/16 19:46:30 by nhariman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ void			Span::fillSpan(void)
 
 void			Span::printList(void)
 {
+	if (this->_l.empty() || this->_l.size() == 1)
+		throw NoSpanException();
 	for (std::list<int>::iterator i = this->_l.begin(); i != this->_l.end(); ++i)
     	std::cout << '\t' << *i;
 	std::cout << std::endl;
